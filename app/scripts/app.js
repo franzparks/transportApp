@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('meetupApp', [
+  .module('transportApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',

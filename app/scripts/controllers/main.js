@@ -10,11 +10,12 @@
  * # CreateEventCtrl
  * # GetEventsCtrl
  
- * Controller of the meetupApp
+ * Controller of the transportApp
  
  */
 
-angular.module('meetupApp')
+angular.module('transportApp')
+.constant("SECURITY_TOKEN",'aa7c0359-0ffc-401d-8d37-e933604e8e38')
 
 .factory("Ref", ["$firebase",
   function($firebase) {
