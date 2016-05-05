@@ -28,12 +28,14 @@ angular.module('transportApp')
 
    $scope.stations = [];
    //console.log("we reeached herer!" + XML_SERVICE);
-   XML_SERVICE.then(function(data){
-     console.log(data);
+   XML_SERVICE.then(function(response){
+     console.log("response = : "+typeof(response.data));
 
-     //var x2js = new X2JS();
-     //var jsonOutput = x2js.xml_str2json(data);
-     //console.log("json output : "+jsonOutput);
+     var x2js = new X2JS();
+      //console.log(x2js);
+      var jsonOutput = x2js.xml_str2json(response.data);
+      //console.log("json output : "+Object.keys(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']));
+      //console.log("output json: "+jsonOutput['RTT']['AgencyList']);
    }, function errorFunction(data,status,headers,config,statusText){
       console.log("error : "+statusText);
       console.log("data : "+Object.keys(data));
