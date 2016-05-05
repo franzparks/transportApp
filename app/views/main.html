@@ -1,0 +1,31 @@
+
+  <div class="">
+    <h3 class="">Welcome to transport App <span class="text-success"></span>!</h3>
+    
+  <div class="row marketing clearfix " ng-controller="GetEventsCtrl">
+   <div class="alert alert-info" >Refresh to get latest schedules!</div>
+  
+  <div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <caption>Current Schedule</caption>
+  <tbody>
+    <tr>
+     <th>Name</th> <th>Type</th> <th>Location</th>  <th>Start Date & Time</th>
+     <th>End Date & Time</th>  <th>Host</th><th>Additional Information</th>
+  </tr>
+  <!--Display events from firebase-->
+   <tr ng-repeat="event in events">
+    <td>{{event.name}}</td>
+    <td>{{event.type || 'Meeting'}}</td>
+    <td>{{event.location || 'Not Yet Decided'}}</td>
+    <td>{{(event.start | date: "MM/dd/yyyy  @ hh:mm a") || 'Not Yet Decided'}}</td>
+    <td>{{(event.end | date: "MM/dd/yyyy @ hh:mm a") || 'Not Yet Decided'}}</td>
+    <td>{{event.host}}</td>
+    <td>{{event.additionalMsg || 'None'}}</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+
+  </div>
+  </div>

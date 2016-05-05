@@ -4,3 +4,7 @@ bower_components/
 
 build/
 dist/
+
+.tmp
+.sass-cache
+npm-debug.log
