@@ -27,7 +27,8 @@ angular.module('transportApp')
 .controller('MainCtrl', function ($scope,XML_SERVICE,$location) {
 
    $scope.stations = [];
-   
+   $scope.departure = '';
+   $scope.destination = '';
    XML_SERVICE.then(function(response){
      //console.log("response = : "+typeof(response.data));
 
