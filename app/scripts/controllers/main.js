@@ -27,15 +27,20 @@ angular.module('transportApp')
 .controller('MainCtrl', function ($scope,XML_SERVICE,$location) {
 
    $scope.stations = [];
-   //console.log("we reeached herer!" + XML_SERVICE);
+   
    XML_SERVICE.then(function(response){
-     console.log("response = : "+typeof(response.data));
+     //console.log("response = : "+typeof(response.data));
 
      var x2js = new X2JS();
       //console.log(x2js);
       var jsonOutput = x2js.xml_str2json(response.data);
       //console.log("json output : "+Object.keys(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']));
-      //console.log("output json: "+jsonOutput['RTT']['AgencyList']);
+      //console.log("output json: "+jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'][0]['_Name']);
+      angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(each){
+        $scope.stations.push(each['_Name']);
+        //console.log(each['_Name']);
+      });
+      console.log($scope.stations);
    }, function errorFunction(data,status,headers,config,statusText){
       console.log("error : "+statusText);
       console.log("data : "+Object.keys(data));

@@ -1,8 +1,36 @@
 
-  <div class="">
+  <div class="" ng-controller="MainCtrl">
+
     <h3 class="">Welcome To the  Transport Schedule App <span class="text-success"></span>!</h3>
-    
-  <div class="row marketing clearfix " ng-controller="GetEventsCtrl">
+
+    <div class="row marketing clearfix ">
+    <div class="alert alert-info" >Select stations to see schedule!</div>
+    </div>
+
+    <div class="row">
+      
+    <div class="col-md-6">
+   
+    <div class="form-group" >
+      <label for="select1">Select Departure Station</label>
+      <select class="form-control" id="select1" ng-model="departure" ng-options="station for station in stations">
+     </select>
+    </div>
+
+    </div>
+     
+    <div class="col-md-6">
+    <div class="form-inline">
+     <div class="form-group">
+      <label for="select2">Select Destination Station</label>
+      <select class="form-control" id="select2"  ng-model="destination" ng-options=" y for y in stations">
+     </select>
+     <button class="btn btn-md btn-primary">Get Schedule</button>
+    </div>
+    </div> 
+    </div>
+    </div>
+   <!--<div class="row marketing clearfix " ng-controller="GetEventsCtrl">
    <div class="alert alert-info" >Refresh to get latest schedules!</div>
   
   <div class="table-responsive">
@@ -13,7 +41,7 @@
      <th>Name</th> <th>Type</th> <th>Location</th>  <th>Start Date & Time</th>
      <th>End Date & Time</th>  <th>Host</th><th>Additional Information</th>
   </tr>
-  <!--Display events from firebase-->
+  
    <tr ng-repeat="event in events">
     <td>{{event.name}}</td>
     <td>{{event.type || 'Meeting'}}</td>
@@ -25,7 +53,8 @@
   </tr>
   </tbody>
   </table>
-  </div>
 
   </div>
+
+  </div>-->
   </div>
