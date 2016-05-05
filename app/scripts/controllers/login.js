@@ -7,7 +7,7 @@
  * # LoginCtrl
  * Controller of the meetupApp
  */
-angular.module('meetupApp')
+angular.module('transportApp')
 
 .factory("Auth", ["$firebaseAuth",
   function($firebaseAuth) {

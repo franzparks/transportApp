@@ -16,20 +16,29 @@
 
 angular.module('transportApp')
 .constant("SECURITY_TOKEN",'aa7c0359-0ffc-401d-8d37-e933604e8e38')
-.constant("DATA_URL",'http://services.my511.org/Transit2.0/GetRoutesForAgency.aspx?token=aa7c0359-0ffc-401d-8d37-e933604e8e38&agencyName=BART')
+.constant("DATA_URL",'https://crossorigin.me/http://services.my511.org/Transit2.0/GetRoutesForAgency.aspx?token=aa7c0359-0ffc-401d-8d37-e933604e8e38&agencyName=BART')
+
 .factory("XML_SERVICE", ["$http","DATA_URL",
   function($http,DATA_URL) {
-    return $http.get(DATA_URL); //Returns a promise
+     return $http({method:'GET', url : DATA_URL}); //Returns a promise
   }
 ])
 
 .controller('MainCtrl', function ($scope,XML_SERVICE,$location) {
 
    $scope.stations = [];
-
-   XML_SERVICE.success(function(data, status, headers, config){
+   //console.log("we reeached herer!" + XML_SERVICE);
+   XML_SERVICE.then(function(data){
      console.log(data);
-   })
+
+     //var x2js = new X2JS();
+     //var jsonOutput = x2js.xml_str2json(data);
+     //console.log("json output : "+jsonOutput);
+   }, function errorFunction(data,status,headers,config,statusText){
+      console.log("error : "+statusText);
+      console.log("data : "+Object.keys(data));
+   });
+ 
 
     
 })
