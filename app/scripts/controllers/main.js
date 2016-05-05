@@ -16,34 +16,20 @@
 
 angular.module('transportApp')
 .constant("SECURITY_TOKEN",'aa7c0359-0ffc-401d-8d37-e933604e8e38')
-
-.factory("Ref", ["$firebase",
-  function($firebase) {
-    var ref = new Firebase("https://franzmeetapp.firebaseio.com");
-    return ref;
+.constant("DATA_URL",'http://services.my511.org/Transit2.0/GetRoutesForAgency.aspx?token=aa7c0359-0ffc-401d-8d37-e933604e8e38&agencyName=BART')
+.factory("XML_SERVICE", ["$http","DATA_URL",
+  function($http,DATA_URL) {
+    return $http.get(DATA_URL); //Returns a promise
   }
 ])
 
-.factory("RefArr", ["$firebaseArray",
-  function($firebaseArray) {
-    var ref = new Firebase("https://franzmeetapp.firebaseio.com/events");
-    return ref;
-  }
-])
-   .controller('MainCtrl', function ($scope,UserDataService,$location) {
+.controller('MainCtrl', function ($scope,XML_SERVICE,$location) {
 
-    $scope.username = UserDataService.getUser();
+   $scope.stations = [];
 
-    $scope.login = {};
-
-    $scope.isLoggedIn = function(){ 
-        return UserDataService.getUser().length > 0;
-    };
-
-
-    $scope.logout = function(){
-      UserDataService.logoutUser();
-    };
+   XML_SERVICE.success(function(data, status, headers, config){
+     console.log(data);
+   })
 
     
 })
