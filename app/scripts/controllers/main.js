@@ -65,27 +65,20 @@ angular.module('transportApp')
       });
     };
 
-
     $scope.get_schedule = function(stop){
 
-      var uRL = START_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ stop[0];
-      
+      var uRL = START_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ stop[0];    
       
       $http({method: 'GET', url : uRL}).then(function(response){
           var x2js = new X2JS();
           var jsonOutput = x2js.xml_str2json(response.data);
-          //console.log(response.data);
+      
           angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(each){
 
             if (each['_Name'] === $scope.start_station[0]) {
               angular.forEach(each['StopList']['Stop']['DepartureTimeList']['DepartureTime'],function(results){
-
-              console.log("departure times : "+results);
-              var val = [];
-             //val[0] = each['_name'];
-            //val[1] =  each['_StopCode']; 
-            $scope.departure_times.push(results);
-         //console.log(each);
+                $scope.departure_times.push(results);
+           
               });
             }
             
@@ -96,5 +89,3 @@ angular.module('transportApp')
     
 });
  
-
-
