@@ -12,15 +12,15 @@
     <div class="col-md-5">
     <div class="form-group" >
       <label for="select1">Select Departure Station</label>
-       <select class="form-control" id="select1" ng-model="departure" ng-options="station for station in stations">
+       <select class="form-control" id="select1" ng-model="start_station" ng-change="get_dest(start_station)" ng-options="station[0] for station in start_stations">
        </select>
      </div>
     </div>
-     
+    
     <div class="col-md-5">
        <div class="form-group">
          <label for="select2">Select Destination Station</label>
-         <select class="form-control" id="select2"  ng-model="destination" ng-options=" y for y in stations">
+         <select class="form-control" id="select2"  ng-model="dest_station" ng-options=" station[0] for station in dest_stations">
          </select>
       </div> 
     </div>
@@ -31,8 +31,8 @@
       <button class="btn btn-md btn-primary">Go</button>
     </div>
     </div
-
-
+    
+  
     </div>
    <!--<div class="row marketing clearfix " ng-controller="GetEventsCtrl">
    <div class="alert alert-info" >Refresh to get latest schedules!</div>

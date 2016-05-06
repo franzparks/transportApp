@@ -17,37 +17,55 @@
 angular.module('transportApp')
 .constant("SECURITY_TOKEN",'aa7c0359-0ffc-401d-8d37-e933604e8e38')
 .constant("DATA_URL",'https://crossorigin.me/http://services.my511.org/Transit2.0/GetRoutesForAgency.aspx?token=aa7c0359-0ffc-401d-8d37-e933604e8e38&agencyName=BART')
+.constant("DEST_URL",'https://crossorigin.me/http://services.my511.org/Transit2.0/GetStopsForRoute.aspx?token=aa7c0359-0ffc-401d-8d37-e933604e8e38')
 
 .factory("XML_SERVICE", ["$http","DATA_URL",
   function($http,DATA_URL) {
-     return $http({method:'GET', url : DATA_URL}); //Returns a promise
+    return $http({method:'GET', url : DATA_URL}); //Returns a promise
   }
 ])
 
-.controller('MainCtrl', function ($scope,XML_SERVICE,$location) {
+.controller('MainCtrl', function ($scope,XML_SERVICE,$location,DEST_URL,$http) {
 
-   $scope.stations = [];
-   $scope.departure = '';
-   $scope.destination = '';
+   $scope.start_stations = [];
+   $scope.dest_stations = [];
+   $scope.start_station = [];
+
+   $scope.dest_station = [];
+
    XML_SERVICE.then(function(response){
-     //console.log("response = : "+typeof(response.data));
 
      var x2js = new X2JS();
-      //console.log(x2js);
-      var jsonOutput = x2js.xml_str2json(response.data);
-      //console.log("json output : "+Object.keys(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']));
-      //console.log("output json: "+jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'][0]['_Name']);
-      angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(each){
-        $scope.stations.push(each['_Name']);
-        //console.log(each['_Name']);
-      });
-      console.log($scope.stations);
-   }, function errorFunction(data,status,headers,config,statusText){
-      console.log("error : "+statusText);
-      console.log("data : "+Object.keys(data));
-   });
- 
+     var jsonOutput = x2js.xml_str2json(response.data);
 
+      angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(each){
+        var val = [];
+        val[0] = each['_Name'];
+        val[1] =  each['_Code']; 
+        $scope.start_stations.push(val);
+        //console.log(val);
+      });
+   });
+  
+   $scope.get_dest = function(start){
+
+      DEST_URL += '&routeIDF=BART~' + start[1];
+      
+      $http({method: 'GET', url : DEST_URL}).then(function(response){
+          var x2js = new X2JS();
+          var jsonOutput = x2js.xml_str2json(response.data);
+
+          angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route']['StopList']['Stop'], function(each){
+            var val = [];
+            val[0] = each['_name'];
+            val[1] =  each['_StopCode']; 
+            $scope.dest_stations.push(val);
+         console.log(each);
+         });
+      });
+    }
+    
+     
     
 })
   .controller('CreateEventCtrl', function ($scope,$location,$filter,UserDataService,RefArr) {
