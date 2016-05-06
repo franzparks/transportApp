@@ -15,20 +15,25 @@
  */
 
 angular.module('transportApp')
-.constant("SECURITY_TOKEN",'aa7c0359-0ffc-401d-8d37-e933604e8e38')
-.constant("DATA_URL",'https://crossorigin.me/http://services.my511.org/Transit2.0/GetRoutesForAgency.aspx?token=aa7c0359-0ffc-401d-8d37-e933604e8e38&agencyName=BART')
-.constant("DEST_URL",'https://crossorigin.me/http://services.my511.org/Transit2.0/GetStopsForRoute.aspx?token=aa7c0359-0ffc-401d-8d37-e933604e8e38')
+.constant("SECURITY_TOKEN",'token=aa7c0359-0ffc-401d-8d37-e933604e8e38')
+.constant("START_URL",'https://crossorigin.me/http://services.my511.org/Transit2.0/')
+.constant("GetRoutesForAgency_ENDPOINT",'GetRoutesForAgency.aspx?')
+.constant("GetStopsForRoute_ENDPOINT",'GetStopsForRoute.aspx?')
+.constant("GetNextDeparturesByStopName_ENDPOINT",'GetNextDeparturesByStopName.aspx?')
+.constant("AGENCY_NAME",'&agencyName=BART')
 
-.factory("XML_SERVICE", ["$http","DATA_URL",
-  function($http,DATA_URL) {
-    return $http({method:'GET', url : DATA_URL}); //Returns a promise
+.factory("XML_SERVICE", ["$http","START_URL", "GetRoutesForAgency_ENDPOINT","AGENCY_NAME","SECURITY_TOKEN",
+  function($http,START_URL,GetRoutesForAgency_ENDPOINT, AGENCY_NAME,SECURITY_TOKEN) {
+    return $http({method:'GET', url : START_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME}); //Returns a promise
   }
 ])
 
-.controller('MainCtrl', function ($scope,XML_SERVICE,$location,DEST_URL,$http) {
+.controller('MainCtrl', function ($scope,XML_SERVICE,$location,START_URL,GetRoutesForAgency_ENDPOINT,$http,
+  GetStopsForRoute_ENDPOINT,GetNextDeparturesByStopName_ENDPOINT,AGENCY_NAME,SECURITY_TOKEN) {
 
    $scope.start_stations = [];
    $scope.dest_stations = [];
+   $scope.departure_times = [];
    $scope.start_station = [];
 
    $scope.dest_station = [];
@@ -49,9 +54,10 @@ angular.module('transportApp')
   
    $scope.get_dest = function(start){
 
-      DEST_URL += '&routeIDF=BART~' + start[1];
+      var uRL = START_URL + GetStopsForRoute_ENDPOINT + SECURITY_TOKEN + '&routeIDF=BART~' + start[1];
       
-      $http({method: 'GET', url : DEST_URL}).then(function(response){
+      $http({method: 'GET', url : uRL}).then(function(response){
+
           var x2js = new X2JS();
           var jsonOutput = x2js.xml_str2json(response.data);
 
@@ -60,10 +66,40 @@ angular.module('transportApp')
             val[0] = each['_name'];
             val[1] =  each['_StopCode']; 
             $scope.dest_stations.push(val);
-         console.log(each);
+            //console.log(each);
          });
       });
+    };
+
+
+    $scope.get_schedule = function(stop){
+
+      var uRL = START_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ stop[0];
+      
+      
+      $http({method: 'GET', url : uRL}).then(function(response){
+          var x2js = new X2JS();
+          var jsonOutput = x2js.xml_str2json(response.data);
+          //console.log(response.data);
+          angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(each){
+
+            if (each['_Name'] === $scope.start_station[0]) {
+              angular.forEach(each['StopList']['Stop']['DepartureTimeList']['DepartureTime'],function(results){
+
+              console.log("departure times : "+results);
+              var val = [];
+             //val[0] = each['_name'];
+            //val[1] =  each['_StopCode']; 
+            $scope.departure_times.push(results);
+         //console.log(each);
+              });
+            }
+            
+         });
+       
+      });
     }
+    
     
      
     

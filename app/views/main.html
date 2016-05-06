@@ -7,58 +7,46 @@
     <div class="alert alert-info" >Select stations to see schedule!</div>
     </div>
 
-    <div class="row form-inline">
+    <div class="row">
       
-    <div class="col-md-5">
+    <div class="col-md-6">
     <div class="form-group" >
       <label for="select1">Select Departure Station</label>
        <select class="form-control" id="select1" ng-model="start_station" ng-change="get_dest(start_station)" ng-options="station[0] for station in start_stations">
+        <option value="" disabled selected>Select departure first...</option>
+
        </select>
      </div>
     </div>
     
-    <div class="col-md-5">
+    <div class="col-md-6">
        <div class="form-group">
          <label for="select2">Select Destination Station</label>
-         <select class="form-control" id="select2"  ng-model="dest_station" ng-options=" station[0] for station in dest_stations">
+         <select class="form-control" id="select2"  ng-model="dest_station"  ng-change="get_schedule(dest_station)"ng-options=" station[0] for station in dest_stations">
+          <option value="" disabled selected>Then select destination...</option>
          </select>
       </div> 
-    </div>
-  
-    <div class="col-md-2">
-     <div class="form-group" >
-      <label for="select1">Get Schedule</label>
-      <button class="btn btn-md btn-primary">Go</button>
-    </div>
-    </div
-    
+    </div> 
   
     </div>
-   <!--<div class="row marketing clearfix " ng-controller="GetEventsCtrl">
-   <div class="alert alert-info" >Refresh to get latest schedules!</div>
-  
+   
   <div class="table-responsive">
   <table class="table table-striped table-hover">
     <caption>Current Schedule</caption>
   <tbody>
     <tr>
-     <th>Name</th> <th>Type</th> <th>Location</th>  <th>Start Date & Time</th>
-     <th>End Date & Time</th>  <th>Host</th><th>Additional Information</th>
+     <th>Next Trains To {{dest_station[0] || 'Destination'}} Leave In : </th>
   </tr>
   
-   <tr ng-repeat="event in events">
-    <td>{{event.name}}</td>
-    <td>{{event.type || 'Meeting'}}</td>
-    <td>{{event.location || 'Not Yet Decided'}}</td>
-    <td>{{(event.start | date: "MM/dd/yyyy  @ hh:mm a") || 'Not Yet Decided'}}</td>
-    <td>{{(event.end | date: "MM/dd/yyyy @ hh:mm a") || 'Not Yet Decided'}}</td>
-    <td>{{event.host}}</td>
-    <td>{{event.additionalMsg || 'None'}}</td>
+   <tr ng-repeat="time in departure_times">
+    
+    <td>{{time || 'No Times Available'}} Minutes</td>
+    
   </tr>
   </tbody>
   </table>
 
   </div>
 
-  </div>-->
+  </div>
   </div>
