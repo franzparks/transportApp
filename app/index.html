@@ -86,7 +86,6 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-    <script src="bower_components/xml2json/xml2json.js"></script>
     <script src="bower_components/sw-toolbox/sw-toolbox.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
@@ -95,11 +94,13 @@
      
    <!--end dev sources-->
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script type="text/javascript" src="scripts/xml2json/xml2json.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
         <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
-        <script type="text/javascript" src="https://cdn.rawgit.com/abdmob/x2js/master/xml2json.js"></script>
+        <!--<script type="text/javascript" src="https://cdn.rawgit.com/abdmob/x2js/master/xml2json.js"></script>-->
+        
         <script src="/bower_components/sw-toolbox/companion.js" data-service-worker="/sw.js"></script>
         <!-- endbuild -->
 

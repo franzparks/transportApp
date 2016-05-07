@@ -18,8 +18,11 @@ angular.module('transportApp')
 
 .factory("XML_SERVICE", ["$http","BASE_URL", "GetRoutesForAgency_ENDPOINT","AGENCY_NAME","SECURITY_TOKEN",
   function($http,BASE_URL,GetRoutesForAgency_ENDPOINT, AGENCY_NAME,SECURITY_TOKEN) {
-    return $http({method:'GET', url : BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME }); //Returns a promise
+    var uRL = BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME ;
+    return $http({method:'GET', url : uRL}); //Returns a promise
   }
+
+  //BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME 
 ])
 
 .controller('MainCtrl', function ($scope,XML_SERVICE,$location,BASE_URL,GetRoutesForAgency_ENDPOINT,$http,
