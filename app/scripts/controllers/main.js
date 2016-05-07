@@ -52,8 +52,8 @@ angular.module('transportApp')
       
       $http({method: 'GET', url : uRL,  cache: true}).then(function(response){
 
-          $scope.dest_stations = [];
           $scope.departure_times = [];
+          $scope.dest_station = [];
 
           var x2js = new X2JS();
           var jsonOutput = x2js.xml_str2json(response.data);
@@ -72,7 +72,9 @@ angular.module('transportApp')
 
     $scope.get_schedule = function(stop){
 
-      var uRL = START_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ stop[0];    
+      var uRL = START_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ stop[0];  
+      $scope.departure_times = [];
+      $scope.dest_station = [];  
       
       $http({method: 'GET', url : uRL}).then(function(response){
           var x2js = new X2JS();
