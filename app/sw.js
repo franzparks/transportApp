@@ -7,31 +7,18 @@
    // Turn on debug logging, visible in the Developer Tools' console.
   global.toolbox.options.debug = true;
 
-  toolbox.precache([ 'scripts/xml2json/xml2json.js','/index.html']);
+  toolbox.precache([ 'scripts/xml2json/xml2json.js','/index.html','/bart-routes.xml']);
  //https://crossorigin.me/http://services.my511.org/Transit2.0/GetRoutesForAgency.aspx?token=aa7c0359-0ffc-401d-8d37-e933604e8e38&agencyName=BART'
 
-  // The route for any requests from the googleapis origin
-  const BART_ROUTES = '/bart-routes.xml';
-  toolbox.cache(BART_ROUTES);
+  
+  toolbox.router.get('/bart-routes.xml', global.toolbox.cacheFirst, {
+       cache: {
+         name: 'bart',
+         maxEntries: 50,
+         maxAgeSeconds: 86400 // cache for a day
+       }
 
-  function bartRouteHandler(request,value,options){
-    //console.log("we reached here!!");
-    return toolbox.cacheFirst(request,value,options).then(function(request){
-      console.log("request : "+Object.keys(request));
-      console.log("caches : "+caches.match(BART_ROUTES));
-      return caches.match(BART_ROUTES);
     });
-  }
-   // {
-   // cache: {
-   //   name: 'bart',
-   //   maxEntries: 10,
-   //   maxAgeSeconds: 86400 // cache for a day
-   // },
-    //origin: /\.localhost\.*$/,
-    // Set a timeout threshold of 2 seconds
-    //networkTimeoutSeconds: 2
-  //});
 
   toolbox.router.get(/^https:\/\/crossorigin.me\//
   , 
@@ -41,11 +28,7 @@
       maxEntries: 50,
       maxAgeSeconds: 86400 // cache for a day
     }
-}
-    //,origin: /\.crossorigin\.*$/,
-    // Set a timeout threshold of 2 seconds
-    //networkTimeoutSeconds: 2
-    );
+  });
 
   
   // Ensure that our service worker takes control of the page as soon as possible.

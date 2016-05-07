@@ -18,8 +18,17 @@ angular.module('transportApp')
 
 .factory("XML_SERVICE", ["$http","BASE_URL", "GetRoutesForAgency_ENDPOINT","AGENCY_NAME","SECURITY_TOKEN",
   function($http,BASE_URL,GetRoutesForAgency_ENDPOINT, AGENCY_NAME,SECURITY_TOKEN) {
-    var uRL = BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME ;
-    return $http({method:'GET', url : uRL}); //Returns a promise
+    var uRL = '/bart-routes.xml';
+    var updateCache = BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME;
+
+    return $http({method:'GET', url : uRL}) //first try to get from cache
+    .then(function(){ 
+      return $http({method:'GET', url : updateCache}); //then try to update cache
+    })
+    .catch(function(data,status,headers,config,statusText){
+      console.log("Network error : "+data +" - "+status); 
+      return $http({method:'GET', url : uRL}); //if there is not network connection, return from cache
+    }); 
   }
 
   //BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME 
