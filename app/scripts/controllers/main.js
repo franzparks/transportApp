@@ -10,19 +10,19 @@
 
 angular.module('transportApp')
 .constant("SECURITY_TOKEN",'token=aa7c0359-0ffc-401d-8d37-e933604e8e38')
-.constant("START_URL",'https://crossorigin.me/http://services.my511.org/Transit2.0/')
+.constant("BASE_URL",'https://crossorigin.me/http://services.my511.org/Transit2.0/')
 .constant("GetRoutesForAgency_ENDPOINT",'GetRoutesForAgency.aspx?')
 .constant("GetStopsForRoute_ENDPOINT",'GetStopsForRoute.aspx?')
 .constant("GetNextDeparturesByStopName_ENDPOINT",'GetNextDeparturesByStopName.aspx?')
 .constant("AGENCY_NAME",'&agencyName=BART')
 
-.factory("XML_SERVICE", ["$http","START_URL", "GetRoutesForAgency_ENDPOINT","AGENCY_NAME","SECURITY_TOKEN",
-  function($http,START_URL,GetRoutesForAgency_ENDPOINT, AGENCY_NAME,SECURITY_TOKEN) {
-    return $http({method:'GET', url : START_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME }); //Returns a promise
+.factory("XML_SERVICE", ["$http","BASE_URL", "GetRoutesForAgency_ENDPOINT","AGENCY_NAME","SECURITY_TOKEN",
+  function($http,BASE_URL,GetRoutesForAgency_ENDPOINT, AGENCY_NAME,SECURITY_TOKEN) {
+    return $http({method:'GET', url : BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME }); //Returns a promise
   }
 ])
 
-.controller('MainCtrl', function ($scope,XML_SERVICE,$location,START_URL,GetRoutesForAgency_ENDPOINT,$http,
+.controller('MainCtrl', function ($scope,XML_SERVICE,$location,BASE_URL,GetRoutesForAgency_ENDPOINT,$http,
   GetStopsForRoute_ENDPOINT,GetNextDeparturesByStopName_ENDPOINT,AGENCY_NAME,SECURITY_TOKEN) {
 
    $scope.start_stations = [];
@@ -48,7 +48,7 @@ angular.module('transportApp')
   
    $scope.get_dest = function(start){
 
-      var uRL = START_URL + GetStopsForRoute_ENDPOINT + SECURITY_TOKEN + '&routeIDF=BART~' + start[1];
+      var uRL = BASE_URL + GetStopsForRoute_ENDPOINT + SECURITY_TOKEN + '&routeIDF=BART~' + start[1];
       
       $http({method: 'GET', url : uRL }).then(function(response){
 
@@ -74,7 +74,7 @@ angular.module('transportApp')
 
     $scope.get_schedule = function(stop){
 
-      var uRL = START_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ stop[0];  
+      var uRL = BASE_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ stop[0];  
       $scope.departure_times = [];
       //$scope.dest_station = [];  
       

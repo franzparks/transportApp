@@ -9,7 +9,13 @@
 
 
   // The route for any requests from the googleapis origin
-  toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
+  toolbox.router.get('/(.*)', //global.toolbox.cacheFirst
+    function(req,values){
+       return new Response('Handled a request for ' + req.url +
+      ', where foo is "' + values.foo + '"');
+    }
+
+    , {
     cache: {
       name: 'trans-apis',
       maxEntries: 10,
