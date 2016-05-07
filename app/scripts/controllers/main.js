@@ -62,7 +62,7 @@ angular.module('transportApp')
             var val = [];
             val[0] = each['_name'];
             val[1] =  each['_StopCode']; 
-            if ($scope.dest_stations.indexOf(val) != -1 ) {
+            if ($scope.dest_stations.indexOf(val) == -1 ) {
                $scope.dest_stations.push(val);
             }
             //console.log(each);
@@ -76,7 +76,7 @@ angular.module('transportApp')
 
       var uRL = START_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ stop[0];  
       $scope.departure_times = [];
-      $scope.dest_station = [];  
+      //$scope.dest_station = [];  
       
       $http({method: 'GET', url : uRL}).then(function(response){
           var x2js = new X2JS();
@@ -87,7 +87,7 @@ angular.module('transportApp')
             if (each['_Name'] === $scope.start_station[0]) {
               angular.forEach(each['StopList']['Stop']['DepartureTimeList']['DepartureTime'],function(results){
 
-                if ($scope.departure_times.indexOf(results) != -1 ) {
+                if ($scope.departure_times.indexOf(results) == -1 ) {
                   $scope.departure_times.push(results);
                 }
     
