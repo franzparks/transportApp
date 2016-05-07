@@ -62,7 +62,9 @@ angular.module('transportApp')
             var val = [];
             val[0] = each['_name'];
             val[1] =  each['_StopCode']; 
-            $scope.dest_stations.push(val);
+            if ($scope.dest_stations.indexOf(val) != -1 ) {
+               $scope.dest_stations.push(val);
+            }
             //console.log(each);
          });
       });
@@ -84,8 +86,11 @@ angular.module('transportApp')
 
             if (each['_Name'] === $scope.start_station[0]) {
               angular.forEach(each['StopList']['Stop']['DepartureTimeList']['DepartureTime'],function(results){
-                $scope.departure_times.push(results);
-           
+
+                if ($scope.departure_times.indexOf(results) != -1 ) {
+                  $scope.departure_times.push(results);
+                }
+    
               });
             }
 
