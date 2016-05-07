@@ -18,7 +18,7 @@ angular.module('transportApp')
 
 .factory("XML_SERVICE", ["$http","START_URL", "GetRoutesForAgency_ENDPOINT","AGENCY_NAME","SECURITY_TOKEN",
   function($http,START_URL,GetRoutesForAgency_ENDPOINT, AGENCY_NAME,SECURITY_TOKEN) {
-    return $http({method:'GET', url : START_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME,  cache: true}); //Returns a promise
+    return $http({method:'GET', url : START_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME }); //Returns a promise
   }
 ])
 
