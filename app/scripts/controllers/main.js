@@ -18,7 +18,7 @@ angular.module('transportApp')
 
 .factory("XML_SERVICE", ["$http","START_URL", "GetRoutesForAgency_ENDPOINT","AGENCY_NAME","SECURITY_TOKEN",
   function($http,START_URL,GetRoutesForAgency_ENDPOINT, AGENCY_NAME,SECURITY_TOKEN) {
-    return $http({method:'GET', url : START_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME}); //Returns a promise
+    return $http({method:'GET', url : START_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME,  cache: true}); //Returns a promise
   }
 ])
 
@@ -50,7 +50,10 @@ angular.module('transportApp')
 
       var uRL = START_URL + GetStopsForRoute_ENDPOINT + SECURITY_TOKEN + '&routeIDF=BART~' + start[1];
       
-      $http({method: 'GET', url : uRL}).then(function(response){
+      $http({method: 'GET', url : uRL,  cache: true}).then(function(response){
+
+          $scope.dest_stations = [];
+          $scope.departure_times = [];
 
           var x2js = new X2JS();
           var jsonOutput = x2js.xml_str2json(response.data);
@@ -63,6 +66,8 @@ angular.module('transportApp')
             //console.log(each);
          });
       });
+
+
     };
 
     $scope.get_schedule = function(stop){
@@ -81,6 +86,10 @@ angular.module('transportApp')
            
               });
             }
+
+            if($scope.departure_times.length > 2){
+            $scope.departure_times.sort(function(a,b){ return a - b;});
+          }
             
          });
        
