@@ -50,7 +50,7 @@ angular.module('transportApp')
 
       var uRL = START_URL + GetStopsForRoute_ENDPOINT + SECURITY_TOKEN + '&routeIDF=BART~' + start[1];
       
-      $http({method: 'GET', url : uRL,  cache: true}).then(function(response){
+      $http({method: 'GET', url : uRL }).then(function(response){
 
           $scope.departure_times = [];
           $scope.dest_station = [];
