@@ -119,7 +119,10 @@ angular.module('transportApp')
           angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(each){
 
             if (each['_Name'] === $scope.start_station[0]) {
-              angular.forEach(each['StopList']['Stop']['DepartureTimeList']['DepartureTime'],function(results){
+              var listOfTimes = each['StopList']['Stop']['DepartureTimeList']['DepartureTime'];
+              console.log("results : "+ listOfTimes);
+             if(listOfTimes){
+              angular.forEach(listOfTimes,function(results){
 
                 if ($scope.departure_times.indexOf(results) == -1 ) {
                   $scope.departure_times.push(results);
@@ -128,7 +131,9 @@ angular.module('transportApp')
               });
             }
 
-            if($scope.departure_times.length > 2){
+            }
+
+            if($scope.departure_times.length > 2){  //sort results before display
             $scope.departure_times.sort(function(a,b){ return a - b;});
           }
             
