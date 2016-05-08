@@ -45,11 +45,8 @@ angular.module('transportApp')
   var agencyCacheUrl = '/bartRoutes.xml';
 
    $scope.start_stations = [];
-   $scope.dest_stations = [];
    $scope.departure_times = [];
    $scope.start_station = [];
-
-   $scope.dest_station = [];
 
    GET_API_DATA.getData(agencyCacheUrl,networkCacheUrl).then(function(response){
 
@@ -65,15 +62,16 @@ angular.module('transportApp')
       });
    });
   
-   $scope.get_dest = function(starting_station){
+   $scope.get_arrival_stations = function(starting_station){
 
       var stopsNetUrl = BASE_URL + GetStopsForRoute_ENDPOINT + SECURITY_TOKEN + '&routeIDF=BART~' + starting_station[1];
       var stopsCacheUrl = '/getStopsForRoute.xml';
-      
+
       GET_API_DATA.getData(stopsCacheUrl,stopsNetUrl).then(function(response){
 
+          $scope.arrival_stations = [];
           $scope.departure_times = [];
-          $scope.dest_station = [];
+          $scope.arrival_station = [];
     
           var x2js = new X2JS();
           var jsonOutput = x2js.xml_str2json(response.data);
@@ -94,8 +92,8 @@ angular.module('transportApp')
               var val = [];
               val[0] = eachStop['_name'];
               val[1] =  eachStop['_StopCode']; 
-              if ($scope.dest_stations.indexOf(val) == -1 ) {
-                $scope.dest_stations.push(val);
+              if ($scope.arrival_stations.indexOf(val) == -1 ) {
+                $scope.arrival_stations.push(val);
             }
       
             });
@@ -105,16 +103,20 @@ angular.module('transportApp')
 
     };
 
-    $scope.get_schedule = function(stop){
+    $scope.get_schedule = function(arrival_station){
 
-      var timesNetUrl = BASE_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ stop[0];  
+      var timesNetUrl = BASE_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ arrival_station[0];
+
       var timesCacheUrl = '/getNextDeparturesByStopName.xml';
 
       $scope.departure_times = [];
       
       GET_API_DATA.getData(timesCacheUrl,timesNetUrl).then(function(response){
+
           var x2js = new X2JS();
           var jsonOutput = x2js.xml_str2json(response.data);
+
+          console.log("got this data : "+ jsonOutput);
       
           angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(each){
 
