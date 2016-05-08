@@ -75,13 +75,23 @@ angular.module('transportApp')
 
           $scope.departure_times = [];
           $scope.dest_station = [];
-
+    
           var x2js = new X2JS();
           var jsonOutput = x2js.xml_str2json(response.data);
           //console.log("we got : "+jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route']);
 
           angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(eachRoute){
-            angular.forEach(eachRoute['StopList']['Stop'], function(eachStop){
+          
+            var stops = {};
+      
+            if(typeof(eachRoute) === 'object' && 'StopList' in eachRoute){
+              stops = eachRoute['StopList']['Stop'];
+            }else{
+              stops = eachRoute['Stop'];
+            }
+    
+
+            angular.forEach(stops, function(eachStop){
               var val = [];
               val[0] = eachStop['_name'];
               val[1] =  eachStop['_StopCode']; 
