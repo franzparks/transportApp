@@ -5,7 +5,9 @@
 <Route Name="24th St. Mission" Code="587">
 <StopList>
 <Stop name="Civic Center (SF)" StopCode="12">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -14,7 +16,9 @@
 <Route Name="Concord" Code="886">
 <StopList>
 <Stop name="Civic Center (SF)" StopCode="11">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -23,7 +27,9 @@
 <Route Name="Daly City" Code="747">
 <StopList>
 <Stop name="Civic Center (SF)" StopCode="12">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -32,7 +38,9 @@
 <Route Name="Dublin/Pleasanton" Code="920">
 <StopList>
 <Stop name="Civic Center (SF)" StopCode="11">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -41,7 +49,9 @@
 <Route Name="Fremont" Code="917">
 <StopList>
 <Stop name="Civic Center (SF)" StopCode="11">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -50,7 +60,9 @@
 <Route Name="Millbrae" Code="764">
 <StopList>
 <Stop name="Civic Center (SF)" StopCode="12">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -59,7 +71,9 @@
 <Route Name="North Concord" Code="1027">
 <StopList>
 <Stop name="Civic Center (SF)" StopCode="11">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -81,7 +95,9 @@
 <Route Name="Pleasant Hill" Code="1735">
 <StopList>
 <Stop name="Civic Center (SF)" StopCode="11">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -90,7 +106,9 @@
 <Route Name="Richmond" Code="237">
 <StopList>
 <Stop name="Civic Center (SF)" StopCode="11">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -99,7 +117,9 @@
 <Route Name="SF Airport" Code="722">
 <StopList>
 <Stop name="Civic Center (SF)" StopCode="12">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -121,7 +141,9 @@
 <Route Name="Concord" Code="886">
 <StopList>
 <Stop name="Daly City" StopCode="91">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -130,7 +152,9 @@
 <Route Name="Daly City" Code="747">
 <StopList>
 <Stop name="Daly City" StopCode="92">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime />
+</DepartureTimeList>
 </Stop>
 
 <Stop name="Daly City" StopCode="91">
@@ -143,7 +167,9 @@
 <Route Name="Dublin/Pleasanton" Code="920">
 <StopList>
 <Stop name="Daly City" StopCode="91">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -152,7 +178,9 @@
 <Route Name="Fremont" Code="917">
 <StopList>
 <Stop name="Daly City" StopCode="91">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -161,7 +189,9 @@
 <Route Name="Millbrae" Code="764">
 <StopList>
 <Stop name="Daly City" StopCode="92">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -170,7 +200,9 @@
 <Route Name="North Concord" Code="1027">
 <StopList>
 <Stop name="Daly City" StopCode="91">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -192,7 +224,9 @@
 <Route Name="Pleasant Hill" Code="1735">
 <StopList>
 <Stop name="Daly City" StopCode="91">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -201,7 +235,9 @@
 <Route Name="Richmond" Code="237">
 <StopList>
 <Stop name="Daly City" StopCode="91">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -210,7 +246,9 @@
 <Route Name="SF Airport" Code="722">
 <StopList>
 <Stop name="Daly City" StopCode="92">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -233,7 +271,9 @@
 <Route Name="Millbrae" Code="764">
 <StopList>
 <Stop name="Millbrae" StopCode="83">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -242,7 +282,9 @@
 <Route Name="Pittsburg/Bay Point" Code="908">
 <StopList>
 <Stop name="Millbrae" StopCode="83">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -251,7 +293,9 @@
 <Route Name="Richmond" Code="237">
 <StopList>
 <Stop name="Millbrae" StopCode="83">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -260,7 +304,9 @@
 <Route Name="SF Airport" Code="722">
 <StopList>
 <Stop name="Millbrae" StopCode="83">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -293,7 +339,9 @@
 <Route Name="Daly City" Code="747">
 <StopList>
 <Stop name="Dublin/Pleasanton" StopCode="75">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -302,7 +350,9 @@
 <Route Name="Concord" Code="886">
 <StopList>
 <Stop name="Pittsburg/Bay Point" StopCode="78">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -311,7 +361,9 @@
 <Route Name="Daly City" Code="747">
 <StopList>
 <Stop name="Pittsburg/Bay Point" StopCode="78">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -320,7 +372,9 @@
 <Route Name="Montgomery" Code="703">
 <StopList>
 <Stop name="Pittsburg/Bay Point" StopCode="78">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -329,7 +383,9 @@
 <Route Name="SF Airport" Code="722">
 <StopList>
 <Stop name="Pittsburg/Bay Point" StopCode="78">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -349,7 +405,9 @@
 <Route Name="Daly City" Code="747">
 <StopList>
 <Stop name="Richmond" StopCode="40">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -358,7 +416,9 @@
 <Route Name="Fremont" Code="917">
 <StopList>
 <Stop name="Richmond" StopCode="40">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
@@ -367,7 +427,9 @@
 <Route Name="Millbrae" Code="764">
 <StopList>
 <Stop name="Richmond" StopCode="40">
-<DepartureTimeList />
+<DepartureTimeList>
+<DepartureTime>90</DepartureTime>
+</DepartureTimeList>
 </Stop>
 
 </StopList>
