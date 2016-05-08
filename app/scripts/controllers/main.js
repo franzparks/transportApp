@@ -16,26 +16,33 @@ angular.module('transportApp')
 .constant("GetNextDeparturesByStopName_ENDPOINT",'GetNextDeparturesByStopName.aspx?')
 .constant("AGENCY_NAME",'&agencyName=BART')
 
-.factory("XML_SERVICE", ["$http","BASE_URL", "GetRoutesForAgency_ENDPOINT","AGENCY_NAME","SECURITY_TOKEN",
-  function($http,BASE_URL,GetRoutesForAgency_ENDPOINT, AGENCY_NAME,SECURITY_TOKEN) {
-    var uRL = '/bart-routes.xml';
-    var updateCache = BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME;
 
-    return $http({method:'GET', url : uRL}) //first try to get from cache
-    .then(function(){ 
-      return $http({method:'GET', url : updateCache}); //then try to update cache
-    })
-    .catch(function(data,status,headers,config,statusText){
-      console.log("Network error : "+data +" - "+status); 
-      return $http({method:'GET', url : uRL}); //if there is not network connection, return from cache
-    }); 
-  }
+.factory('GET_API_DATA', ['$http', function($http){
 
-  //BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME 
-])
+ return {
 
-.controller('MainCtrl', function ($scope,XML_SERVICE,$location,BASE_URL,GetRoutesForAgency_ENDPOINT,$http,
+    getAgencyData : function(updateCacheUrl){
+      var uRL = '/bart-routes.xml';
+      return $http({method:'GET', url : uRL})
+      .then(function(){ 
+         return $http({method:'GET', url : updateCacheUrl}); //then try to update cache
+      })
+      .catch(function(data,status,headers,config,statusText){
+        //console.log("Network error : "+data +" - "+status); 
+        return $http({method:'GET', url : uRL}); //if there is not network connection, return from cache
+      });
+    }
+
+
+ };
+
+}])
+
+
+.controller('MainCtrl', function ($scope,GET_API_DATA,$location,BASE_URL,GetRoutesForAgency_ENDPOINT,$http,
   GetStopsForRoute_ENDPOINT,GetNextDeparturesByStopName_ENDPOINT,AGENCY_NAME,SECURITY_TOKEN) {
+
+  var updateCache = BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME;
 
    $scope.start_stations = [];
    $scope.dest_stations = [];
@@ -44,7 +51,7 @@ angular.module('transportApp')
 
    $scope.dest_station = [];
 
-   XML_SERVICE.then(function(response){
+   GET_API_DATA.getAgencyData(updateCache).then(function(response){
 
      var x2js = new X2JS();
      var jsonOutput = x2js.xml_str2json(response.data);
