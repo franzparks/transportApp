@@ -89,11 +89,11 @@ angular.module('transportApp')
     
 
             angular.forEach(stops, function(eachStop){
-              var val = [];
-              val[0] = eachStop['_name'];
-              val[1] =  eachStop['_StopCode']; 
-              if ($scope.arrival_stations.indexOf(val) == -1 ) {
-                $scope.arrival_stations.push(val);
+              //var val = [];
+              //val[0] = eachStop['_name'];
+              //val[1] =  eachStop['_StopCode']; 
+              if ($scope.arrival_stations.indexOf(eachStop['_name']) == -1 ) {
+                $scope.arrival_stations.push(eachStop['_name']);
             }
       
             });
@@ -105,7 +105,7 @@ angular.module('transportApp')
 
     $scope.get_schedule = function(arrival_station){
 
-      var timesNetUrl = BASE_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ arrival_station[0];
+      var timesNetUrl = BASE_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ arrival_station;
 
       var timesCacheUrl = '/getNextDeparturesByStopName.xml';
 
@@ -122,7 +122,7 @@ angular.module('transportApp')
 
             if (each['_Name'] === $scope.start_station[0]) {
               var listOfTimes = each['StopList']['Stop']['DepartureTimeList']['DepartureTime'];
-              console.log("results : "+ listOfTimes);
+              //console.log("results : "+ listOfTimes);
              if(listOfTimes){
               angular.forEach(listOfTimes,function(results){
 
