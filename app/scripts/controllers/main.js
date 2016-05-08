@@ -33,7 +33,6 @@ angular.module('transportApp')
       });
     }
 
-
  };
 
 }])
@@ -43,7 +42,7 @@ angular.module('transportApp')
   GetStopsForRoute_ENDPOINT,GetNextDeparturesByStopName_ENDPOINT,AGENCY_NAME,SECURITY_TOKEN) {
 
   var networkCacheUrl = BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME;
-  var agencyCacheUrl = '/bart-routes.xml';
+  var agencyCacheUrl = '/bartRoutes.xml';
 
    $scope.start_stations = [];
    $scope.dest_stations = [];
@@ -69,7 +68,7 @@ angular.module('transportApp')
    $scope.get_dest = function(starting_station){
 
       var stopsNetUrl = BASE_URL + GetStopsForRoute_ENDPOINT + SECURITY_TOKEN + '&routeIDF=BART~' + starting_station[1];
-      var stopsCacheUrl = '/GetStopsForRoute.xml';
+      var stopsCacheUrl = '/getStopsForRoute.xml';
       
       GET_API_DATA.getData(stopsCacheUrl,stopsNetUrl).then(function(response){
 
@@ -110,7 +109,6 @@ angular.module('transportApp')
 
       var uRL = BASE_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ stop[0];  
       $scope.departure_times = [];
-      //$scope.dest_station = [];  
       
       $http({method: 'GET', url : uRL}).then(function(response){
           var x2js = new X2JS();
