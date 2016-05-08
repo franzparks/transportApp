@@ -214,6 +214,603 @@
 </Route>
 
 
+<Route Name="Dublin/Pleasanton" Code="920">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="11">
+</Stop>
+
+<Stop name="Powell St. (SF)" StopCode="13">
+</Stop>
+
+<Stop name="Montgomery St. (SF)" StopCode="15">
+</Stop>
+
+<Stop name="Embarcadero (SF)" StopCode="17">
+</Stop>
+
+<Stop name="West Oakland" StopCode="19">
+</Stop>
+
+<Stop name="Bayfair (San Leandro)" StopCode="30">
+</Stop>
+
+<Stop name="San Leandro" StopCode="32">
+</Stop>
+
+<Stop name="Coliseum/Oakland Airport" StopCode="34">
+</Stop>
+
+<Stop name="Fruitvale (Oakland)" StopCode="36">
+</Stop>
+
+<Stop name="Lake Merritt (Oakland)" StopCode="38">
+</Stop>
+
+<Stop name="Castro Valley" StopCode="74">
+</Stop>
+
+<Stop name="Daly City" StopCode="91">
+</Stop>
+
+<Stop name="Balboa Park (SF)" StopCode="93">
+</Stop>
+
+<Stop name="Glen Park (SF)" StopCode="95">
+</Stop>
+
+<Stop name="24th St. Mission (SF)" StopCode="97">
+</Stop>
+
+<Stop name="16th St. Mission (SF)" StopCode="99">
+</Stop>
+
+</StopList>
+</Route>
+
+
+<Route Name="Millbrae" Code="764">
+<StopList>
+<Stop name="16th St. Mission (SF)" StopCode="10">
+</Stop>
+
+<Stop name="Civic Center (SF)" StopCode="12">
+</Stop>
+
+<Stop name="Powell St. (SF)" StopCode="14">
+</Stop>
+
+<Stop name="Montgomery St. (SF)" StopCode="16">
+</Stop>
+
+<Stop name="Embarcadero (SF)" StopCode="18">
+</Stop>
+
+<Stop name="West Oakland" StopCode="20">
+</Stop>
+
+<Stop name="Richmond" StopCode="40">
+</Stop>
+
+<Stop name="El Cerrito Del Norte" StopCode="42">
+</Stop>
+
+<Stop name="El Cerrito Plaza" StopCode="44">
+</Stop>
+
+<Stop name="North Berkeley" StopCode="46">
+</Stop>
+
+<Stop name="Downtown Berkeley" StopCode="48">
+</Stop>
+
+<Stop name="Ashby (Berkeley)" StopCode="50">
+</Stop>
+
+<Stop name="MacArthur (Oakland)" StopCode="64">
+</Stop>
+
+<Stop name="19th St. Oakland" StopCode="66">
+</Stop>
+
+<Stop name="12th St. Oakland City Center" StopCode="68">
+</Stop>
+
+<Stop name="Colma" StopCode="72">
+</Stop>
+
+<Stop name="South San Francisco" StopCode="80">
+</Stop>
+
+<Stop name="San Bruno" StopCode="82">
+</Stop>
+
+<Stop name="Millbrae" StopCode="83">
+</Stop>
+
+<Stop name="San Francisco Int&#39;l Airport" StopCode="85">
+</Stop>
+
+<Stop name="Daly City" StopCode="92">
+</Stop>
+
+<Stop name="Balboa Park (SF)" StopCode="94">
+</Stop>
+
+<Stop name="Glen Park (SF)" StopCode="96">
+</Stop>
+
+<Stop name="24th St. Mission (SF)" StopCode="98">
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="North Concord" Code="1027">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="11">
+</Stop>
+
+<Stop name="Powell St. (SF)" StopCode="13">
+</Stop>
+
+<Stop name="Montgomery St. (SF)" StopCode="15">
+</Stop>
+
+<Stop name="Embarcadero (SF)" StopCode="17">
+</Stop>
+
+<Stop name="West Oakland" StopCode="19">
+</Stop>
+
+<Stop name="Concord" StopCode="51">
+</Stop>
+
+<Stop name="Pleasant Hill/Contra Costa Centre" StopCode="53">
+</Stop>
+
+<Stop name="Walnut Creek" StopCode="55">
+</Stop>
+
+<Stop name="Lafayette" StopCode="57">
+</Stop>
+
+<Stop name="Orinda" StopCode="59">
+</Stop>
+
+<Stop name="Rockridge (Oakland)" StopCode="61">
+</Stop>
+
+<Stop name="MacArthur (Oakland)" StopCode="63">
+</Stop>
+
+<Stop name="19th St. Oakland" StopCode="65">
+</Stop>
+
+<Stop name="12th St. Oakland City Center" StopCode="67">
+</Stop>
+
+<Stop name="North Concord/Martinez" StopCode="69">
+</Stop>
+
+<Stop name="Daly City" StopCode="91">
+</Stop>
+
+<Stop name="Balboa Park (SF)" StopCode="93">
+</Stop>
+
+<Stop name="Glen Park (SF)" StopCode="95">
+</Stop>
+
+<Stop name="24th St. Mission (SF)" StopCode="97">
+</Stop>
+
+<Stop name="16th St. Mission (SF)" StopCode="99">
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Pittsburg/Bay Point" Code="908">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="11">
+</Stop>
+
+<Stop name="Powell St. (SF)" StopCode="13">
+</Stop>
+
+<Stop name="Montgomery St. (SF)" StopCode="15">
+</Stop>
+
+<Stop name="Embarcadero (SF)" StopCode="17">
+</Stop>
+
+<Stop name="West Oakland" StopCode="19">
+</Stop>
+
+<Stop name="Concord" StopCode="51">
+</Stop>
+
+<Stop name="Pleasant Hill/Contra Costa Centre" StopCode="53">
+</Stop>
+
+<Stop name="Walnut Creek" StopCode="55">
+</Stop>
+
+<Stop name="Lafayette" StopCode="57">
+</Stop>
+
+<Stop name="Orinda" StopCode="59">
+</Stop>
+
+<Stop name="Rockridge (Oakland)" StopCode="61">
+</Stop>
+
+<Stop name="MacArthur (Oakland)" StopCode="63">
+</Stop>
+
+<Stop name="19th St. Oakland" StopCode="65">
+</Stop>
+
+<Stop name="12th St. Oakland City Center" StopCode="67">
+</Stop>
+
+<Stop name="North Concord/Martinez" StopCode="69">
+</Stop>
+
+<Stop name="Colma" StopCode="71">
+</Stop>
+
+<Stop name="South San Francisco" StopCode="79">
+</Stop>
+
+<Stop name="San Bruno" StopCode="81">
+</Stop>
+
+<Stop name="Millbrae" StopCode="83">
+</Stop>
+
+<Stop name="San Francisco Int&#39;l Airport" StopCode="85">
+</Stop>
+
+<Stop name="Daly City" StopCode="91">
+</Stop>
+
+<Stop name="Balboa Park (SF)" StopCode="93">
+</Stop>
+
+<Stop name="Glen Park (SF)" StopCode="95">
+</Stop>
+
+<Stop name="24th St. Mission (SF)" StopCode="97">
+</Stop>
+
+<Stop name="16th St. Mission (SF)" StopCode="99">
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Pleasant Hill" Code="1735">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="11">
+</Stop>
+
+<Stop name="Powell St. (SF)" StopCode="13">
+</Stop>
+
+<Stop name="Montgomery St. (SF)" StopCode="15">
+</Stop>
+
+<Stop name="Embarcadero (SF)" StopCode="17">
+</Stop>
+
+<Stop name="West Oakland" StopCode="19">
+</Stop>
+
+<Stop name="Pleasant Hill/Contra Costa Centre" StopCode="53">
+</Stop>
+
+<Stop name="Walnut Creek" StopCode="55">
+</Stop>
+
+<Stop name="Lafayette" StopCode="57">
+</Stop>
+
+<Stop name="Orinda" StopCode="59">
+</Stop>
+
+<Stop name="Rockridge (Oakland)" StopCode="61">
+</Stop>
+
+<Stop name="MacArthur (Oakland)" StopCode="63">
+</Stop>
+
+<Stop name="19th St. Oakland" StopCode="65">
+</Stop>
+
+<Stop name="12th St. Oakland City Center" StopCode="67">
+</Stop>
+
+<Stop name="Daly City" StopCode="91">
+</Stop>
+
+<Stop name="Balboa Park (SF)" StopCode="93">
+</Stop>
+
+<Stop name="Glen Park (SF)" StopCode="95">
+</Stop>
+
+<Stop name="24th St. Mission (SF)" StopCode="97">
+</Stop>
+
+<Stop name="16th St. Mission (SF)" StopCode="99">
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Richmond" Code="237">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="11">
+</Stop>
+
+<Stop name="Powell St. (SF)" StopCode="13">
+</Stop>
+
+<Stop name="Montgomery St. (SF)" StopCode="15">
+</Stop>
+
+<Stop name="Embarcadero (SF)" StopCode="17">
+</Stop>
+
+<Stop name="West Oakland" StopCode="19">
+</Stop>
+
+<Stop name="Fremont" StopCode="21">
+</Stop>
+
+<Stop name="Union City" StopCode="23">
+</Stop>
+
+<Stop name="South Hayward" StopCode="25">
+</Stop>
+
+<Stop name="Hayward" StopCode="27">
+</Stop>
+
+<Stop name="Bayfair (San Leandro)" StopCode="29">
+</Stop>
+
+<Stop name="San Leandro" StopCode="31">
+</Stop>
+
+<Stop name="Coliseum/Oakland Airport" StopCode="33">
+</Stop>
+
+<Stop name="Fruitvale (Oakland)" StopCode="35">
+</Stop>
+
+<Stop name="Lake Merritt (Oakland)" StopCode="37">
+</Stop>
+
+<Stop name="El Cerrito Del Norte" StopCode="41">
+</Stop>
+
+<Stop name="El Cerrito Plaza" StopCode="43">
+</Stop>
+
+<Stop name="North Berkeley" StopCode="45">
+</Stop>
+
+<Stop name="Downtown Berkeley" StopCode="47">
+</Stop>
+
+<Stop name="Ashby (Berkeley)" StopCode="49">
+</Stop>
+
+<Stop name="MacArthur (Oakland)" StopCode="63">
+</Stop>
+
+<Stop name="19th St. Oakland" StopCode="65">
+</Stop>
+
+<Stop name="12th St. Oakland City Center" StopCode="67">
+</Stop>
+
+<Stop name="Colma" StopCode="71">
+</Stop>
+
+<Stop name="South San Francisco" StopCode="79">
+</Stop>
+
+<Stop name="San Bruno" StopCode="81">
+</Stop>
+
+<Stop name="Millbrae" StopCode="83">
+</Stop>
+
+<Stop name="Daly City" StopCode="91">
+</Stop>
+
+<Stop name="Balboa Park (SF)" StopCode="93">
+</Stop>
+
+<Stop name="Glen Park (SF)" StopCode="95">
+</Stop>
+
+<Stop name="24th St. Mission (SF)" StopCode="97">
+</Stop>
+
+<Stop name="16th St. Mission (SF)" StopCode="99">
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="SF Airport" Code="722">
+<StopList>
+<Stop name="16th St. Mission (SF)" StopCode="10">
+</Stop>
+
+<Stop name="Civic Center (SF)" StopCode="12">
+</Stop>
+
+<Stop name="Powell St. (SF)" StopCode="14">
+</Stop>
+
+<Stop name="Montgomery St. (SF)" StopCode="16">
+</Stop>
+
+<Stop name="Embarcadero (SF)" StopCode="18">
+</Stop>
+
+<Stop name="West Oakland" StopCode="20">
+</Stop>
+
+<Stop name="Concord" StopCode="52">
+</Stop>
+
+<Stop name="Pleasant Hill/Contra Costa Centre" StopCode="54">
+</Stop>
+
+<Stop name="Walnut Creek" StopCode="56">
+</Stop>
+
+<Stop name="Lafayette" StopCode="58">
+</Stop>
+
+<Stop name="Orinda" StopCode="60">
+</Stop>
+
+<Stop name="Rockridge (Oakland)" StopCode="62">
+</Stop>
+
+<Stop name="MacArthur (Oakland)" StopCode="64">
+</Stop>
+
+<Stop name="19th St. Oakland" StopCode="66">
+</Stop>
+
+<Stop name="12th St. Oakland City Center" StopCode="68">
+</Stop>
+
+<Stop name="North Concord/Martinez" StopCode="70">
+</Stop>
+
+<Stop name="Colma" StopCode="72">
+</Stop>
+
+<Stop name="Pittsburg/Bay Point" StopCode="78">
+</Stop>
+
+<Stop name="South San Francisco" StopCode="80">
+</Stop>
+
+<Stop name="San Bruno" StopCode="82">
+</Stop>
+
+<Stop name="Millbrae" StopCode="83">
+</Stop>
+
+<Stop name="San Francisco Int&#39;l Airport" StopCode="85">
+</Stop>
+
+<Stop name="Daly City" StopCode="92">
+</Stop>
+
+<Stop name="Balboa Park (SF)" StopCode="94">
+</Stop>
+
+<Stop name="Glen Park (SF)" StopCode="96">
+</Stop>
+
+<Stop name="24th St. Mission (SF)" StopCode="98">
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="SF Airport then Millbrae" Code="1561">
+<StopList>
+<Stop name="16th St. Mission (SF)" StopCode="10">
+</Stop>
+
+<Stop name="Civic Center (SF)" StopCode="12">
+</Stop>
+
+<Stop name="Powell St. (SF)" StopCode="14">
+</Stop>
+
+<Stop name="Montgomery St. (SF)" StopCode="16">
+</Stop>
+
+<Stop name="Embarcadero (SF)" StopCode="18">
+</Stop>
+
+<Stop name="West Oakland" StopCode="20">
+</Stop>
+
+<Stop name="Concord" StopCode="52">
+</Stop>
+
+<Stop name="Pleasant Hill/Contra Costa Centre" StopCode="54">
+</Stop>
+
+<Stop name="Walnut Creek" StopCode="56">
+</Stop>
+
+<Stop name="Lafayette" StopCode="58">
+</Stop>
+
+<Stop name="Orinda" StopCode="60">
+</Stop>
+
+<Stop name="Rockridge (Oakland)" StopCode="62">
+</Stop>
+
+<Stop name="MacArthur (Oakland)" StopCode="64">
+</Stop>
+
+<Stop name="19th St. Oakland" StopCode="66">
+</Stop>
+
+<Stop name="12th St. Oakland City Center" StopCode="68">
+</Stop>
+
+<Stop name="North Concord/Martinez" StopCode="70">
+</Stop>
+
+<Stop name="Colma" StopCode="72">
+</Stop>
+
+<Stop name="Pittsburg/Bay Point" StopCode="78">
+</Stop>
+
+<Stop name="South San Francisco" StopCode="80">
+</Stop>
+
+<Stop name="San Bruno" StopCode="82">
+</Stop>
+
+<Stop name="San Francisco Int&#39;l Airport" StopCode="85">
+</Stop>
+
+<Stop name="Daly City" StopCode="92">
+</Stop>
+
+<Stop name="Balboa Park (SF)" StopCode="94">
+</Stop>
+
+<Stop name="Glen Park (SF)" StopCode="96">
+</Stop>
+
+<Stop name="24th St. Mission (SF)" StopCode="98">
+</Stop>
+
+</StopList>
+</Route>
+
+
 </RouteList>
 </Agency>
 
