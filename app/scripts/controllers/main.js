@@ -43,7 +43,7 @@ angular.module('transportApp')
   GetStopsForRoute_ENDPOINT,GetNextDeparturesByStopName_ENDPOINT,AGENCY_NAME,SECURITY_TOKEN) {
 
   var networkCacheUrl = BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME;
-  var cacheUrl = '/bart-routes.xml';
+  var agencyCacheUrl = '/bart-routes.xml';
 
    $scope.start_stations = [];
    $scope.dest_stations = [];
@@ -52,7 +52,7 @@ angular.module('transportApp')
 
    $scope.dest_station = [];
 
-   GET_API_DATA.getData(cacheUrl,networkCacheUrl).then(function(response){
+   GET_API_DATA.getData(agencyCacheUrl,networkCacheUrl).then(function(response){
 
      var x2js = new X2JS();
      var jsonOutput = x2js.xml_str2json(response.data);
@@ -66,26 +66,30 @@ angular.module('transportApp')
       });
    });
   
-   $scope.get_dest = function(start){
+   $scope.get_dest = function(starting_station){
 
-      var uRL = BASE_URL + GetStopsForRoute_ENDPOINT + SECURITY_TOKEN + '&routeIDF=BART~' + start[1];
+      var stopsNetUrl = BASE_URL + GetStopsForRoute_ENDPOINT + SECURITY_TOKEN + '&routeIDF=BART~' + starting_station[1];
+      var stopsCacheUrl = '/GetStopsForRoute.xml';
       
-      $http({method: 'GET', url : uRL }).then(function(response){
+      GET_API_DATA.getData(stopsCacheUrl,stopsNetUrl).then(function(response){
 
           $scope.departure_times = [];
           $scope.dest_station = [];
 
           var x2js = new X2JS();
           var jsonOutput = x2js.xml_str2json(response.data);
+          //console.log("we got : "+jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route']);
 
-          angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route']['StopList']['Stop'], function(each){
-            var val = [];
-            val[0] = each['_name'];
-            val[1] =  each['_StopCode']; 
-            if ($scope.dest_stations.indexOf(val) == -1 ) {
-               $scope.dest_stations.push(val);
+          angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(eachRoute){
+            angular.forEach(eachRoute['StopList']['Stop'], function(eachStop){
+              var val = [];
+              val[0] = eachStop['_name'];
+              val[1] =  eachStop['_StopCode']; 
+              if ($scope.dest_stations.indexOf(val) == -1 ) {
+                $scope.dest_stations.push(val);
             }
-            //console.log(each);
+      
+            });
          });
       });
 
