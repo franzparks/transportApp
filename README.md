@@ -1,6 +1,8 @@
 # TransportApp
 An offline first application that allows users to select a departure and arrival train station, and see a list of trains, times, and durations.
 
+The application currently displayes the BART service times from given stations 
+
 Initial project files generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.12.1.
 

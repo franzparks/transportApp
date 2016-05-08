@@ -229,6 +229,151 @@
 </StopList>
 </Route>
 
+<RouteList>
+<Route Name="Millbrae" Code="764">
+<StopList>
+<Stop name="Millbrae" StopCode="83">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Pittsburg/Bay Point" Code="908">
+<StopList>
+<Stop name="Millbrae" StopCode="83">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Richmond" Code="237">
+<StopList>
+<Stop name="Millbrae" StopCode="83">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="SF Airport" Code="722">
+<StopList>
+<Stop name="Millbrae" StopCode="83">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="SF Airport then Pittsburg/Bay Point" Code="1567">
+<StopList>
+<Stop name="Millbrae" StopCode="83">
+<DepartureTimeList>
+<DepartureTime>12</DepartureTime>
+<DepartureTime>32</DepartureTime>
+</DepartureTimeList>
+</Stop>
+
+</StopList>
+</Route>
+
+<RouteList>
+<Route Name="Bayfair" Code="367">
+<StopList>
+<Stop name="Dublin/Pleasanton" StopCode="75">
+<DepartureTimeList>
+<DepartureTime>27</DepartureTime>
+</DepartureTimeList>
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Daly City" Code="747">
+<StopList>
+<Stop name="Dublin/Pleasanton" StopCode="75">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Concord" Code="886">
+<StopList>
+<Stop name="Pittsburg/Bay Point" StopCode="78">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Daly City" Code="747">
+<StopList>
+<Stop name="Pittsburg/Bay Point" StopCode="78">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Montgomery" Code="703">
+<StopList>
+<Stop name="Pittsburg/Bay Point" StopCode="78">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="SF Airport" Code="722">
+<StopList>
+<Stop name="Pittsburg/Bay Point" StopCode="78">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="SF Airport then Millbrae" Code="1561">
+<StopList>
+<Stop name="Pittsburg/Bay Point" StopCode="78">
+<DepartureTimeList>
+<DepartureTime>25</DepartureTime>
+</DepartureTimeList>
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Daly City" Code="747">
+<StopList>
+<Stop name="Richmond" StopCode="40">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Fremont" Code="917">
+<StopList>
+<Stop name="Richmond" StopCode="40">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Millbrae" Code="764">
+<StopList>
+<Stop name="Richmond" StopCode="40">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+
 </RouteList>
 </Agency>
 
