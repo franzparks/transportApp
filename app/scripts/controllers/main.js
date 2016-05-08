@@ -75,8 +75,7 @@ angular.module('transportApp')
     
           var x2js = new X2JS();
           var jsonOutput = x2js.xml_str2json(response.data);
-          //console.log("we got : "+jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route']);
-
+          
           angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(eachRoute){
           
             var stops = {};
@@ -87,11 +86,7 @@ angular.module('transportApp')
               stops = eachRoute['Stop'];
             }
     
-
-            angular.forEach(stops, function(eachStop){
-              //var val = [];
-              //val[0] = eachStop['_name'];
-              //val[1] =  eachStop['_StopCode']; 
+            angular.forEach(stops, function(eachStop){ 
               if ($scope.arrival_stations.indexOf(eachStop['_name']) == -1 ) {
                 $scope.arrival_stations.push(eachStop['_name']);
             }
