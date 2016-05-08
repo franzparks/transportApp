@@ -7,8 +7,9 @@
    // Turn on debug logging, visible in the Developer Tools' console.
   global.toolbox.options.debug = true;
 
-  toolbox.precache([ 'scripts/xml2json/xml2json.js','/index.html','/bartRoutes.xml','/getStopsForRoute.xml']);
- //https://crossorigin.me/http://services.my511.org/Transit2.0/GetRoutesForAgency.aspx?token=aa7c0359-0ffc-401d-8d37-e933604e8e38&agencyName=BART'
+  toolbox.precache([ 'scripts/xml2json/xml2json.js','/index.html','/bartRoutes.xml',
+    '/getStopsForRoute.xml', '/getNextDeparturesByStopName.xml']);
+ 
 
   
   toolbox.router.get('/bartRoutes.xml', global.toolbox.cacheFirst, {

@@ -1,0 +1,125 @@
+<RTT>
+<AgencyList>
+<Agency Name="BART" HasDirection="False" Mode="Rail">
+<RouteList>
+<Route Name="24th St. Mission" Code="587">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="12">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Concord" Code="886">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="11">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Daly City" Code="747">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="12">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Dublin/Pleasanton" Code="920">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="11">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Fremont" Code="917">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="11">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Millbrae" Code="764">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="12">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="North Concord" Code="1027">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="11">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Pittsburg/Bay Point" Code="908">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="11">
+<DepartureTimeList>
+<DepartureTime>5</DepartureTime>
+<DepartureTime>25</DepartureTime>
+<DepartureTime>45</DepartureTime>
+</DepartureTimeList>
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Pleasant Hill" Code="1735">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="11">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Richmond" Code="237">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="11">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="SF Airport" Code="722">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="12">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="SF Airport then Millbrae" Code="1561">
+<StopList>
+<Stop name="Civic Center (SF)" StopCode="12">
+<DepartureTimeList>
+<DepartureTime>6</DepartureTime>
+<DepartureTime>26</DepartureTime>
+<DepartureTime>46</DepartureTime>
+</DepartureTimeList>
+</Stop>
+
+</StopList>
+</Route>
+
+</RouteList>
+</Agency>
+
+</AgencyList>
+</RTT>
