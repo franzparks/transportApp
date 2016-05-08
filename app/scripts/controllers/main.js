@@ -21,15 +21,15 @@ angular.module('transportApp')
 
  return {
 
-    getAgencyData : function(updateCacheUrl){
-      var uRL = '/bart-routes.xml';
-      return $http({method:'GET', url : uRL})
+    getData : function(cacheUrl, networkUrl){
+      
+      return $http({method:'GET', url : cacheUrl}) //get from cache first
       .then(function(){ 
-         return $http({method:'GET', url : updateCacheUrl}); //then try to update cache
+         return $http({method:'GET', url : networkUrl}); //then try to update cache
       })
       .catch(function(data,status,headers,config,statusText){
         //console.log("Network error : "+data +" - "+status); 
-        return $http({method:'GET', url : uRL}); //if there is not network connection, return from cache
+        return $http({method:'GET', url : cacheUrl}); //if there is not network connection, return from cache
       });
     }
 
@@ -42,7 +42,8 @@ angular.module('transportApp')
 .controller('MainCtrl', function ($scope,GET_API_DATA,$location,BASE_URL,GetRoutesForAgency_ENDPOINT,$http,
   GetStopsForRoute_ENDPOINT,GetNextDeparturesByStopName_ENDPOINT,AGENCY_NAME,SECURITY_TOKEN) {
 
-  var updateCache = BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME;
+  var networkCacheUrl = BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME;
+  var cacheUrl = '/bart-routes.xml';
 
    $scope.start_stations = [];
    $scope.dest_stations = [];
@@ -51,7 +52,7 @@ angular.module('transportApp')
 
    $scope.dest_station = [];
 
-   GET_API_DATA.getAgencyData(updateCache).then(function(response){
+   GET_API_DATA.getData(cacheUrl,networkCacheUrl).then(function(response){
 
      var x2js = new X2JS();
      var jsonOutput = x2js.xml_str2json(response.data);
