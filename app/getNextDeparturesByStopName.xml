@@ -118,6 +118,117 @@
 </StopList>
 </Route>
 
+<Route Name="Concord" Code="886">
+<StopList>
+<Stop name="Daly City" StopCode="91">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Daly City" Code="747">
+<StopList>
+<Stop name="Daly City" StopCode="92">
+<DepartureTimeList />
+</Stop>
+
+<Stop name="Daly City" StopCode="91">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Dublin/Pleasanton" Code="920">
+<StopList>
+<Stop name="Daly City" StopCode="91">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Fremont" Code="917">
+<StopList>
+<Stop name="Daly City" StopCode="91">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Millbrae" Code="764">
+<StopList>
+<Stop name="Daly City" StopCode="92">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="North Concord" Code="1027">
+<StopList>
+<Stop name="Daly City" StopCode="91">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Pittsburg/Bay Point" Code="908">
+<StopList>
+<Stop name="Daly City" StopCode="91">
+<DepartureTimeList>
+<DepartureTime>6</DepartureTime>
+<DepartureTime>26</DepartureTime>
+<DepartureTime>46</DepartureTime>
+</DepartureTimeList>
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Pleasant Hill" Code="1735">
+<StopList>
+<Stop name="Daly City" StopCode="91">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="Richmond" Code="237">
+<StopList>
+<Stop name="Daly City" StopCode="91">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="SF Airport" Code="722">
+<StopList>
+<Stop name="Daly City" StopCode="92">
+<DepartureTimeList />
+</Stop>
+
+</StopList>
+</Route>
+
+<Route Name="SF Airport then Millbrae" Code="1561">
+<StopList>
+<Stop name="Daly City" StopCode="92">
+<DepartureTimeList>
+<DepartureTime>13</DepartureTime>
+<DepartureTime>33</DepartureTime>
+<DepartureTime>53</DepartureTime>
+</DepartureTimeList>
+</Stop>
+
+</StopList>
+</Route>
+
 </RouteList>
 </Agency>
 

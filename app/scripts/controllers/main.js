@@ -107,10 +107,12 @@ angular.module('transportApp')
 
     $scope.get_schedule = function(stop){
 
-      var uRL = BASE_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ stop[0];  
+      var timesNetUrl = BASE_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ stop[0];  
+      var timesCacheUrl = '/getNextDeparturesByStopName.xml';
+
       $scope.departure_times = [];
       
-      $http({method: 'GET', url : uRL}).then(function(response){
+      GET_API_DATA.getData(timesCacheUrl,timesNetUrl).then(function(response){
           var x2js = new X2JS();
           var jsonOutput = x2js.xml_str2json(response.data);
       

@@ -30,6 +30,15 @@
 
     });
 
+   toolbox.router.get('/getNextDeparturesByStopName.xml', global.toolbox.cacheFirst, {
+       cache: {
+         name: 'bart',
+         maxEntries: 50,
+         maxAgeSeconds: 86400 // cache for a day
+       }
+
+    });
+
   toolbox.router.get(/^https:\/\/crossorigin.me\//
   , 
   global.toolbox.cacheFirst, {
