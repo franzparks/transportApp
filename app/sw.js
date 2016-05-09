@@ -55,6 +55,7 @@ var myDefaultRequestHandler = function(request, values, options) {
   // Ensure that our service worker takes control of the page as soon as possible.
   //global.addEventListener('install', event => event.waitUntil(global.skipWaiting()));
   global.addEventListener('install', function(event) {
+    global.toolbox.options.debug = true;
   event.waitUntil(
   caches.open('my-cache').then(function(cache) {
         // Important to `return` the promise here to have `skipWaiting()`
