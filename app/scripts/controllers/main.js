@@ -9,13 +9,8 @@
  */
 
 angular.module('transportApp')
-.constant("SECURITY_TOKEN",'token=aa7c0359-0ffc-401d-8d37-e933604e8e38')
-.constant("BASE_URL",'https://crossorigin.me/http://services.my511.org/Transit2.0/')
-.constant("GetRoutesForAgency_ENDPOINT",'GetRoutesForAgency.aspx?')
-.constant("GetStopsForRoute_ENDPOINT",'GetStopsForRoute.aspx?')
-.constant("GetNextDeparturesByStopName_ENDPOINT",'GetNextDeparturesByStopName.aspx?')
-.constant("AGENCY_NAME",'&agencyName=BART')
-
+.constant("SECURITY_TOKEN",'&key=MW9S-E7SL-26DU-VV8V&l=1')
+.constant("BASE_URL",'https://crossorigin.me/')
 
 .factory('GET_API_DATA', ['$http', function($http){
 
@@ -38,15 +33,14 @@ angular.module('transportApp')
 }])
 
 
-.controller('MainCtrl', function ($scope,GET_API_DATA,$location,BASE_URL,GetRoutesForAgency_ENDPOINT,$http,
-  GetStopsForRoute_ENDPOINT,GetNextDeparturesByStopName_ENDPOINT,AGENCY_NAME,SECURITY_TOKEN) {
+.controller('MainCtrl', function ($scope,GET_API_DATA,$location,BASE_URL,SECURITY_TOKEN) {
 
   var networkCacheUrl = 'http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V';//BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME;
   var agencyCacheUrl = '/stations.xml';
 
    $scope.stations = [];
    $scope.departure_times = [];
-   $scope.start_station = [];
+   $scope.starting_station = [];
 
    GET_API_DATA.getData(agencyCacheUrl,networkCacheUrl).then(function(response){
 
@@ -57,72 +51,47 @@ angular.module('transportApp')
          var val = [];
          val[0] = station['name'];
          val[1] =  station['abbr']; 
-        $scope.stations.push(val);
+        $scope.stations.push(station);
         //console.log(val);
       });
      
    });
   
-   $scope.get_arrival_stations = function(starting_station){
-
-      var stopsNetUrl = BASE_URL + GetStopsForRoute_ENDPOINT + SECURITY_TOKEN + '&routeIDF=BART~' + starting_station[1];
-      var stopsCacheUrl = '/getStopsForRoute.xml';
-
-      GET_API_DATA.getData(stopsCacheUrl,stopsNetUrl).then(function(response){
-
-          $scope.arrival_stations = [];
-          $scope.departure_times = [];
-          $scope.arrival_station = [];
-    
-          var x2js = new X2JS();
-          var jsonOutput = x2js.xml_str2json(response.data);
-          
-          angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(eachRoute){
-          
-            var stops = {};
-      
-            if(typeof(eachRoute) === 'object' && 'StopList' in eachRoute){
-              stops = eachRoute['StopList']['Stop'];
-            }else{
-              stops = eachRoute['Stop'];
-            }
-    
-            angular.forEach(stops, function(eachStop){ 
-              if ($scope.arrival_stations.indexOf(eachStop['_name']) == -1 ) {
-                $scope.arrival_stations.push(eachStop['_name']);
-            }
-      
-            });
-         });
-      });
-
-    };
+   
 
     $scope.get_schedule = function(arrival_station){
 
-      var timesNetUrl = 'http://api.bart.gov/api/sched.aspx?cmd=stnsched&orig=12th&key=MW9S-E7SL-26DU-VV8V&l=1';
-      //BASE_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ arrival_station;
+      //'http://api.bart.gov/api/sched.aspx?cmd=arrive&orig=ASHB&dest=CIVC&date=now&key=MW9S-E7SL-26DU-VV8V&b=2&a=2&l=1'
 
+      var timesNetUrl = BASE_URL+'http://api.bart.gov/api/sched.aspx?cmd=arrive&orig='+
+      $scope.starting_station['abbr']+'&dest='+arrival_station['abbr']+'&date=now'+SECURITY_TOKEN;
+      
       var timesCacheUrl = '/schedules.xml';
 
       $scope.departure_times = [];
       
       GET_API_DATA.getData(timesCacheUrl,timesNetUrl).then(function(response){
-
+          //console.log("got this data : "+ response.data);
           var x2js = new X2JS();
           var jsonOutput = x2js.xml_str2json(response.data);
 
-          console.log("got this data : "+ jsonOutput['root']['station']['item']);
-      
-           angular.forEach(jsonOutput['root']['station']['item'], function(each){
+          // console.log("got this data : "+ Object.keys(jsonOutput['root']['station']['item']));
+          var keys = Object.keys(jsonOutput['root']);
+          console.log("keys are : "+keys);
 
-             $scope.departure_times.push(each);
+           if (keys.indexOf('schedule') !== -1) {
+              angular.forEach(jsonOutput['root']['schedule']['request']['trip'], function(item){
+             //console.log("arrival_station : "+arrival_station[1] + " and current station : "+item['_trainHeadStation']);
+               $scope.departure_times.push(item);
+            });
 
-          });
+           }else if (keys.indexOf('station') !== -1) {
+              angular.forEach(jsonOutput['root']['station']['item'], function(item){
+               //console.log("arrival_station : "+arrival_station[1] + " and current station : "+item['_trainHeadStation']);
+              $scope.departure_times.push(item);
+              });
+           }
         
-            //if($scope.departure_times.length > 2){  //sort results before display
-            //$scope.departure_times.sort(function(a,b){ return a - b;});
-          //}
             
          });
        

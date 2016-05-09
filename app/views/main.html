@@ -12,7 +12,7 @@
     <div class="col-md-6">
     <div class="form-group" >
       <label for="select1">Select Departure Station</label>
-       <select class="form-control" id="select1" ng-model="start_station" ng-options="station[0] for station in stations">
+       <select class="form-control" id="select1" ng-model="starting_station" ng-options="station['name'] for station in stations">
         <option value="" disabled selected>Select departure station first...</option>
 
        </select>
@@ -22,7 +22,7 @@
     <div class="col-md-6">
        <div class="form-group">
          <label for="select2">Select Arrival Station</label>
-         <select class="form-control" id="select2"  ng-model="arrival_station[1]"  ng-change="get_schedule(arrival_station)"ng-options=" station[0] for station in stations">
+         <select class="form-control" id="select2"  ng-model="arrival_station"  ng-change="get_schedule(arrival_station)" ng-options=" station['name'] for station in stations">
           <option value="" disabled selected>Then select destination...</option>
          </select>
       </div> 
@@ -46,10 +46,10 @@
   
    <tr ng-repeat="time in departure_times">
     
-    <td>{{time['_line']}}</td>
-    <td>{{time['_origTime']}}</td>
-    <td>{{time['_destTime']}}</td>
-    
+    <td>{{time['_line'] || time['leg']['_line']}}</td>
+    <td>{{time['_origTime'] || time['_origTimeMin']}}</td>
+    <td>{{time['_destTime'] || time['_destTimeMin']}}</td>
+  
   </tr>
   </tbody>
   </table>

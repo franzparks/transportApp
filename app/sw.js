@@ -5,7 +5,7 @@
   importScripts('/bower_components/sw-toolbox/sw-toolbox.js');
 
    // Turn on debug logging, visible in the Developer Tools' console.
-  global.toolbox.options.debug = true;
+  //global.toolbox.options.debug = true;
 
  
 //'https://crossorigin.me/http://maps.googleapis.com/maps/api/js?sensor=false',
@@ -28,20 +28,12 @@
 
     });
 
-   toolbox.router.get('/getNextDeparturesByStopName.xml', global.toolbox.cacheFirst, {
-       cache: {
-         name: 'bart',
-         maxEntries: 50,
-         maxAgeSeconds: 86400 // cache for a day
-       }
-
-    });
 
   toolbox.router.get(/^https:\/\/crossorigin.me\//
   , 
   global.toolbox.cacheFirst, {
   cache: {
-      name: 'bart',
+      name: 'my-cache',
       maxEntries: 50,
       maxAgeSeconds: 86400 // cache for a day
     }
