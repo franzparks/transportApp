@@ -36,9 +36,9 @@
  
 //'https://crossorigin.me/http://maps.googleapis.com/maps/api/js?sensor=false',
   
-  toolbox.router.get('/bartRoutes.xml', global.toolbox.cacheFirst, {
+  toolbox.router.get('/stations.xml', global.toolbox.cacheFirst, {
        cache: {
-         name: 'bart',
+         name: 'my-cache',
          maxEntries: 50,
          maxAgeSeconds: 86400 // cache for a day
        }
@@ -75,13 +75,14 @@
 
 var myDefaultRequestHandler = function(request, values, options) {
   return toolbox.router.get('/(.*)', 
-  global.toolbox.cacheFirst, {
-  cache: {
+    global.toolbox.cacheFirst, {
+   cache: {
       name: 'my-cache',
       maxEntries: 80,
       maxAgeSeconds: 86400 // cache for a day
     }
   });
+}
 
 //toolbox.router.default = myDefaultRequestHandler;
   

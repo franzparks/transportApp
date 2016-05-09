@@ -41,10 +41,10 @@ angular.module('transportApp')
 .controller('MainCtrl', function ($scope,GET_API_DATA,$location,BASE_URL,GetRoutesForAgency_ENDPOINT,$http,
   GetStopsForRoute_ENDPOINT,GetNextDeparturesByStopName_ENDPOINT,AGENCY_NAME,SECURITY_TOKEN) {
 
-  var networkCacheUrl = BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME;
-  var agencyCacheUrl = '/bartRoutes.xml';
+  var networkCacheUrl = 'http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V';//BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME;
+  var agencyCacheUrl = '/stations.xml';
 
-   $scope.start_stations = [];
+   $scope.stations = [];
    $scope.departure_times = [];
    $scope.start_station = [];
 
@@ -52,14 +52,15 @@ angular.module('transportApp')
 
      var x2js = new X2JS();
      var jsonOutput = x2js.xml_str2json(response.data);
-
-      angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(each){
-        var val = [];
-        val[0] = each['_Name'];
-        val[1] =  each['_Code']; 
-        $scope.start_stations.push(val);
+      //console.log("new data : "+ jsonOutput['root']['stations']['station']);
+      angular.forEach(jsonOutput['root']['stations']['station'], function(station){
+         var val = [];
+         val[0] = station['name'];
+         val[1] =  station['abbr']; 
+        $scope.stations.push(val);
         //console.log(val);
       });
+     
    });
   
    $scope.get_arrival_stations = function(starting_station){
