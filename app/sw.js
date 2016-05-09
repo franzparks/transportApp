@@ -6,31 +6,28 @@
 
    // Turn on debug logging, visible in the Developer Tools' console.
   global.toolbox.options.debug = true;
+  toolbox.cache.name['my-cache'];
+  toolbox.cache.maxEntries = 100;
+  toolbox.cache.maxAgeSeconds = 86400;
 
   
   toolbox.router.get('/stations.xml', global.toolbox.cacheFirst, {
        cache: {
-         name: 'cache',
-         maxEntries: 50,
-         maxAgeSeconds: 86400 // cache for a day
+         name: 'my-cache'
        }
 
     });
 
    toolbox.router.get('/schedules.xml', global.toolbox.cacheFirst, {
        cache: {
-         name: 'cache',
-         maxEntries: 80,
-         maxAgeSeconds: 86400 // cache for a day
+         name: 'my-cache'
        }
 
     });
 
    toolbox.router.get('/sw.js', global.toolbox.cacheFirst, {
        cache: {
-         name: 'cache',
-         maxEntries: 80,
-         maxAgeSeconds: 86400 // cache for a day
+         name: 'my-cache'
        }
 
     });
@@ -40,19 +37,15 @@
   , 
   global.toolbox.cacheFirst, {
   cache: {
-      name: 'cache',
-      maxEntries: 80,
-      maxAgeSeconds: 86400 // cache for a day
+      name: 'my-cache'
     }
   });
 
   toolbox.router.get(/^http:\/\/googleapis.com\//
   , 
   global.toolbox.cacheFirst, {
-  cache: {
-      name: 'cache',
-      maxEntries: 80,
-      maxAgeSeconds: 86400 // cache for a day
+    cache: {
+      name: 'my-cache'
     }
   });
 
@@ -60,11 +53,9 @@
 var myDefaultRequestHandler = function(request, values, options) {
   return toolbox.router.get('/(.*)', 
     global.toolbox.cacheFirst, {
-   cache: {
-      name: 'cache',
-      maxEntries: 80,
-      maxAgeSeconds: 86400 // cache for a day
-    }
+      cache: {
+       name: 'my-cache'
+     }
   });
 }
 
@@ -77,7 +68,7 @@ toolbox.router.default = myDefaultRequestHandler;
   global.addEventListener('install', function(event) {
     global.toolbox.options.debug = true;
   event.waitUntil(
-  caches.open('cache').then(function(cache) {
+  caches.open('my-cache').then(function(cache) {
         // Important to `return` the promise here to have `skipWaiting()`
         // fire after the cache has been updated.
         return cache.addAll([
