@@ -1,5 +1,5 @@
 {
-  "name": "meetup",
+  "name": "transport",
   "private": true,
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -24,15 +24,15 @@
     "grunt-svgmin": "^2.0.0",
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
+    "jasmine-core": "*",
     "jit-grunt": "^0.9.1",
     "jshint-stylish": "^1.0.0",
+    "karma": "^0.13.0",
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
-    "time-grunt": "^1.0.0",
-    "karma": "^0.9",
     "phantomjs": "^1.9",
-    "jasmine-core" :"*",
-    "karma":"^0.13.0"
+    "sw-precache": "^3.1.1",
+    "time-grunt": "^1.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
