@@ -5,15 +5,12 @@
   importScripts('/bower_components/sw-toolbox/sw-toolbox.js');
 
    // Turn on debug logging, visible in the Developer Tools' console.
-  //global.toolbox.options.debug = true;
+  global.toolbox.options.debug = true;
 
- 
-//'https://crossorigin.me/http://maps.googleapis.com/maps/api/js?sensor=false',
-//var toolbox = require('sw-toolbox');
   
   toolbox.router.get('/stations.xml', global.toolbox.cacheFirst, {
        cache: {
-         name: 'my-cache',
+         name: 'cache',
          maxEntries: 50,
          maxAgeSeconds: 86400 // cache for a day
        }
@@ -22,8 +19,8 @@
 
    toolbox.router.get('/schedules.xml', global.toolbox.cacheFirst, {
        cache: {
-         name: 'my-cache',
-         maxEntries: 50,
+         name: 'cache',
+         maxEntries: 80,
          maxAgeSeconds: 86400 // cache for a day
        }
 
@@ -31,8 +28,8 @@
 
    toolbox.router.get('/sw.js', global.toolbox.cacheFirst, {
        cache: {
-         name: 'my-cache',
-         maxEntries: 50,
+         name: 'cache',
+         maxEntries: 80,
          maxAgeSeconds: 86400 // cache for a day
        }
 
@@ -43,22 +40,35 @@
   , 
   global.toolbox.cacheFirst, {
   cache: {
-      name: 'my-cache',
-      maxEntries: 50,
+      name: 'cache',
+      maxEntries: 80,
       maxAgeSeconds: 86400 // cache for a day
     }
   });
 
+  toolbox.router.get(/^http:\/\/googleapis.com\//
+  , 
+  global.toolbox.cacheFirst, {
+  cache: {
+      name: 'cache',
+      maxEntries: 80,
+      maxAgeSeconds: 86400 // cache for a day
+    }
+  });
+
+
 var myDefaultRequestHandler = function(request, values, options) {
   return toolbox.router.get('/(.*)', 
-    global.toolbox.fastest, {
+    global.toolbox.cacheFirst, {
    cache: {
-      name: 'my-cache',
-      maxEntries: 50,
+      name: 'cache',
+      maxEntries: 80,
       maxAgeSeconds: 86400 // cache for a day
     }
   });
 }
+
+
 
 toolbox.router.default = myDefaultRequestHandler;
 
@@ -67,31 +77,35 @@ toolbox.router.default = myDefaultRequestHandler;
   global.addEventListener('install', function(event) {
     global.toolbox.options.debug = true;
   event.waitUntil(
-  caches.open('my-cache').then(function(cache) {
+  caches.open('cache').then(function(cache) {
         // Important to `return` the promise here to have `skipWaiting()`
         // fire after the cache has been updated.
         return cache.addAll([
          '/scripts/xml2json/xml2json.js','/index.html','/stations.xml',
     '/schedules.xml',
-     'bower_components/bootstrap/dist/css/bootstrap.css',
+     '/bower_components/bootstrap/dist/css/bootstrap.css',
      '/styles/main.css', '/styles/styles.css',
-     'bower_components/jquery/dist/jquery.js',
-     'bower_components/angular/angular.js',
-     'bower_components/angular-loading-bar/build/loading-bar.css',
-     'bower_components/bootstrap/dist/js/bootstrap.js',
-     'bower_components/angular-animate/angular-animate.js',
-     'bower_components/angular-aria/angular-aria.js',
-     'bower_components/angular-cookies/angular-cookies.js',
-     'bower_components/angular-messages/angular-messages.js',
-     'bower_components/angular-resource/angular-resource.js',
-     'bower_components/angular-route/angular-route.js',
-     'bower_components/angular-sanitize/angular-sanitize.js',
-     'bower_components/angular-touch/angular-touch.js',
-     'bower_components/angular-loading-bar/build/loading-bar.js',
+     '/bower_components/jquery/dist/jquery.js',
+     '/bower_components/angular/angular.js',
+     '/bower_components/angular-loading-bar/build/loading-bar.css',
+     '/bower_components/bootstrap/dist/js/bootstrap.js',
+     '/bower_components/angular-animate/angular-animate.js',
+     '/bower_components/angular-aria/angular-aria.js',
+     '/bower_components/angular-cookies/angular-cookies.js',
+     '/bower_components/angular-messages/angular-messages.js',
+     '/bower_components/angular-resource/angular-resource.js',
+     '/bower_components/angular-route/angular-route.js',
+     '/bower_components/angular-sanitize/angular-sanitize.js',
+     '/bower_components/angular-touch/angular-touch.js',
+     '/bower_components/angular-loading-bar/build/loading-bar.js',
      '/scripts/app.js',
      '/scripts/controllers/main.js',
-     'https://crossorigin.me/https://cdn.rawgit.com/abdmob/x2js/master/xml2json.js',
-     '/sw.js'
+     '/sw.js',
+     '/views/main.html',
+     'https://crossorigin.me/http://maps.google.com/maps-api-v3/api/js/24/11/common.js',
+     'https://crossorigin.me/http://maps.googleapis.com/maps/api/js?sensor=false',
+     'https://crossorigin.me/http://maps.google.com/maps-api-v3/api/js/24/11/util.js',
+     'https://crossorigin.me/http://maps.google.com/maps-api-v3/api/js/24/11/stats.js'
 
         ]);
     }).then(function() {
