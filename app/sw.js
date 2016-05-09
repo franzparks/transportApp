@@ -105,9 +105,10 @@ toolbox.router.default = myDefaultRequestHandler;
       // Together with `Clients.claim()` this allows a worker to take effect
       // immediately in the client(s).
       return self.skipWaiting();
+    
     })
   );
 });
   global.addEventListener('activate', event => event.waitUntil(global.clients.claim()));
-
+  
 })(self);
