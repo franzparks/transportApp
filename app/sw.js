@@ -93,7 +93,7 @@ var myDefaultRequestHandler = function(request, values, options) {
         // Important to `return` the promise here to have `skipWaiting()`
         // fire after the cache has been updated.
         return cache.addAll([
-         '/scripts/xml2json/xml2json.js','/index.html','/bartRoutes.xml',
+         '/scripts/xml2json/xml2json.js','/index.html','/stations.xml',
     '/getStopsForRoute.xml', '/getNextDeparturesByStopName.xml',
      'bower_components/bootstrap/dist/css/bootstrap.css',
      '/styles/main.css', '/styles/styles.css',
