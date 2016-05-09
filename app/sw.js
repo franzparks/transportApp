@@ -9,6 +9,7 @@
 
  
 //'https://crossorigin.me/http://maps.googleapis.com/maps/api/js?sensor=false',
+//var toolbox = require('sw-toolbox');
   
   toolbox.router.get('/stations.xml', global.toolbox.cacheFirst, {
        cache: {
@@ -20,6 +21,15 @@
     });
 
    toolbox.router.get('/schedules.xml', global.toolbox.cacheFirst, {
+       cache: {
+         name: 'my-cache',
+         maxEntries: 50,
+         maxAgeSeconds: 86400 // cache for a day
+       }
+
+    });
+
+   toolbox.router.get('/sw.js', global.toolbox.cacheFirst, {
        cache: {
          name: 'my-cache',
          maxEntries: 50,
@@ -41,17 +51,17 @@
 
 var myDefaultRequestHandler = function(request, values, options) {
   return toolbox.router.get('/(.*)', 
-    global.toolbox.cacheFirst, {
+    global.toolbox.fastest, {
    cache: {
       name: 'my-cache',
-      maxEntries: 80,
+      maxEntries: 50,
       maxAgeSeconds: 86400 // cache for a day
     }
   });
 }
 
-//toolbox.router.default = myDefaultRequestHandler;
-  
+toolbox.router.default = myDefaultRequestHandler;
+
   // Ensure that our service worker takes control of the page as soon as possible.
   //global.addEventListener('install', event => event.waitUntil(global.skipWaiting()));
   global.addEventListener('install', function(event) {

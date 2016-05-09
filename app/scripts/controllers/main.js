@@ -77,7 +77,7 @@ angular.module('transportApp')
 
           // console.log("got this data : "+ Object.keys(jsonOutput['root']['station']['item']));
           var keys = Object.keys(jsonOutput['root']);
-          console.log("keys are : "+keys);
+          //console.log("keys are : "+keys);
 
            if (keys.indexOf('schedule') !== -1) {
               angular.forEach(jsonOutput['root']['schedule']['request']['trip'], function(item){
