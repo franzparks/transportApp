@@ -20,5 +20,5 @@ To run the app after downloading the source code :
 Browse the app at http://localhost:9000/
 
 To build for production:
-Run `run grunt`
+Run `grunt build`
 
