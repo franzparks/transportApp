@@ -96,14 +96,14 @@ angular.module('transportApp')
          });
       });
 
-
     };
 
     $scope.get_schedule = function(arrival_station){
 
-      var timesNetUrl = BASE_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ arrival_station;
+      var timesNetUrl = 'http://api.bart.gov/api/sched.aspx?cmd=stnsched&orig=12th&key=MW9S-E7SL-26DU-VV8V&l=1';
+      //BASE_URL + GetNextDeparturesByStopName_ENDPOINT + SECURITY_TOKEN +AGENCY_NAME+'&stopName='+ arrival_station;
 
-      var timesCacheUrl = '/getNextDeparturesByStopName.xml';
+      var timesCacheUrl = '/schedules.xml';
 
       $scope.departure_times = [];
       
@@ -112,33 +112,22 @@ angular.module('transportApp')
           var x2js = new X2JS();
           var jsonOutput = x2js.xml_str2json(response.data);
 
-          console.log("got this data : "+ jsonOutput);
+          console.log("got this data : "+ jsonOutput['root']['station']['item']);
       
-          angular.forEach(jsonOutput['RTT']['AgencyList']['Agency']['RouteList']['Route'], function(each){
+           angular.forEach(jsonOutput['root']['station']['item'], function(each){
 
-            if (each['_Name'] === $scope.start_station[0]) {
-              var listOfTimes = each['StopList']['Stop']['DepartureTimeList']['DepartureTime'];
-              //console.log("results : "+ listOfTimes);
-             if(listOfTimes){
-              angular.forEach(listOfTimes,function(results){
+             $scope.departure_times.push(each);
 
-                if ($scope.departure_times.indexOf(results) == -1 ) {
-                  $scope.departure_times.push(results);
-                }
-    
-              });
-            }
-
-            }
-
-            if($scope.departure_times.length > 2){  //sort results before display
-            $scope.departure_times.sort(function(a,b){ return a - b;});
-          }
+          });
+        
+            //if($scope.departure_times.length > 2){  //sort results before display
+            //$scope.departure_times.sort(function(a,b){ return a - b;});
+          //}
             
          });
        
-      });
-    }   
+      };
+    //}   
     
 });
  
