@@ -9,8 +9,8 @@
  */
 
 angular.module('transportApp')
-.constant("SECURITY_TOKEN",'&key=MW9S-E7SL-26DU-VV8V&l=1')
-.constant("BASE_URL",'https://crossorigin.me/')
+.constant('SECURITY_TOKEN','&key=MW9S-E7SL-26DU-VV8V&l=1')
+.constant('BASE_URL','https://crossorigin.me/')
 
 .factory('GET_API_DATA', ['$http', function($http){
 
