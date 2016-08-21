@@ -21,7 +21,7 @@ angular
     'chieffancypants.loadingBar'
   ])
 
-  .config(function ($routeProvider) {
+  .config([function ($routeProvider) {
   
     $routeProvider
       .when('/', {
@@ -31,4 +31,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }]);
