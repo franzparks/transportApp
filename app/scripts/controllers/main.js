@@ -33,7 +33,7 @@ angular.module('transportApp')
 }])
 
 
-.controller('MainCtrl', function ($scope,GET_API_DATA,$location,BASE_URL,SECURITY_TOKEN) {
+.controller('MainCtrl',['$scope','GET_API_DATA','$location','BASE_URL','SECURITY_TOKEN', function ($scope,GET_API_DATA,$location,BASE_URL,SECURITY_TOKEN) {
 
   var networkCacheUrl = 'http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V';//BASE_URL+GetRoutesForAgency_ENDPOINT+SECURITY_TOKEN+AGENCY_NAME;
   var agencyCacheUrl = '/stations.xml';
@@ -98,5 +98,5 @@ angular.module('transportApp')
       };
     //}   
     
-});
+}]);
  
