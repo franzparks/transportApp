@@ -21,7 +21,7 @@ angular
     'chieffancypants.loadingBar'
   ])
 
-  .config([function ($routeProvider) {
+  .config(['$routeProvider',function ($routeProvider) {
   
     $routeProvider
       .when('/', {
